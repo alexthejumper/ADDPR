@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'bulma/css/bulma.min.css';
 
 :root {
   --background: #ffffff;
@@ -18,4 +16,114 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Ensure content is not hidden behind the navbar */
+/*body {
+  padding-top: 3.5rem;
+}*/
+
+/* Main Navbar: This disappears when scrolling */
+.main-navbar {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Sticky Navbar: This appears after scrolling */
+.sticky-navbar {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  animation: slideDown 0.3s ease-in-out;
+}
+
+/* Slide-in animation for sticky navbar */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+body {
+  -ms-overflow-style: none;
+}
+
+
+.pixDiv200 {
+  height: 10000px;
+}
+
+.blueBackgroundColor {
+  background-color: darkblue;
+}
+
+.whiteBackgroundColor {
+  background-color: white;
+}
+
+.logoUpDownMargin {
+  margin: 5px 0;
+}
+
+.h-100px {
+  height: 100px;
+}
+
+/* Overriding navbar item */
+.navbar-item img {
+    max-height: none !important;
+}
+
+
+
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.navbar-menu.is-active .navbar-item {
+  animation: slideInLeft 0.5s ease-out both;
+}
+
+/* Delay each menu item for a staggered effect */
+.navbar-menu.is-active .navbar-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.navbar-menu.is-active .navbar-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.navbar-menu.is-active .navbar-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.navbar-menu.is-active .navbar-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.navbar-menu.is-active .navbar-item:nth-child(5) {
+  animation-delay: 0.5s;
 }
