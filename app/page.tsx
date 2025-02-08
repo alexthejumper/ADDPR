@@ -92,7 +92,6 @@ export default function Home() {
                         <h2 className="subtitle colorWhite">
                             {/* eslint-disable-next-line react/no-unescaped-entities */}
                             Rejoignez-nous dans l'adoration et la communion chaque dimanche.
-                            Mercii
                         </h2>
                         <Link href="/contact/" className="button is-light is-large mt-4">
                             Contactez Nous
