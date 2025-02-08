@@ -75,6 +75,7 @@ export default function Home() {
 
                         <div className="content">
                             <h1 className="title blueBackgroundColor colorWhite">
+                                {/* eslint-disable-next-line react/no-unescaped-entities */}
                                 A L'Assemblee de Dieu
                                 <br />
                                 Petite Riviere
@@ -87,7 +88,9 @@ export default function Home() {
                             </h1>
                         </div>
 
+
                         <h2 className="subtitle colorWhite">
+                            {/* eslint-disable-next-line react/no-unescaped-entities */}
                             Rejoignez-nous dans l'adoration et la communion chaque dimanche.
                         </h2>
                         <Link href="/contact/" className="button is-light is-large mt-4">
