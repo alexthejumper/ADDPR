@@ -306,7 +306,7 @@ body {
 }
 
 /* Large screens (Laptops, Desktops) */
-@media (min-width: 1024px) {
+/*@media (min-width: 1024px) {
   .side-carousel {
     width: 25%;
     max-width: 300px;
@@ -314,12 +314,23 @@ body {
   .carousel-item video {
     height: 500px;
   }
+}*/
+
+/* Extra-large screens (4K) */
+@media (min-width: 1024px) {
+  .side-carousel {
+    width: 15%;
+    max-width: 350px;
+  }
+  .carousel-item video {
+    height: 70vh;
+  }
 }
 
 /* Extra-large screens (4K) */
-@media (min-width: 1440px) {
+@media (min-width: 1800px) {
   .side-carousel {
-    width: 15%;
+    width: 25%;
     max-width: 350px;
   }
   .carousel-item video {
