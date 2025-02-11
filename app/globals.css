@@ -286,7 +286,7 @@ body {
 
 
 .carousel-item video {
-  width: 100%;
+  width: 15vw;
   height: 500px;
   object-fit: cover; /* Ensures the video fills the container without distortion */
   border-radius: 10px;
