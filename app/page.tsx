@@ -30,15 +30,24 @@ export default function Home() {
                 whileHover={{ opacity: 1 }}  // Full opacity on hover
                 transition={{ duration: 1, ease: "easeOut" }}
             >
-            <Slider {...settings}>
+                <Slider {...settings}>
                     <div className="carousel-item">
-                        <img src="/images/callOnMe.png" alt="Slide 1" />
+                        <video autoPlay loop muted playsInline>
+                            <source src="/videos/JesusVideo.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div className="carousel-item">
-                        <img src="/images/inChristAlone.png" alt="Slide 2" />
+                        <video autoPlay loop muted playsInline>
+                            <source src="/videos/YeshuaVideo.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div className="carousel-item">
-                        <img src="/images/JesusDied.png" alt="Slide 3" />
+                        <video autoPlay loop muted playsInline>
+                            <source src="/videos/SauveurVideo.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                 </Slider>
             </motion.div>
@@ -51,15 +60,24 @@ export default function Home() {
                 whileHover={{ opacity: 1 }}  // Full opacity on hover
                 transition={{ duration: 1, ease: "easeOut", /*delay: 0.5*/ }}
             >
-            <Slider {...settings}>
+                <Slider {...settings}>
                     <div className="carousel-item">
-                        <img src="/images/Jesusistheway.png" alt="Slide 4" />
+                        <video autoPlay loop muted playsInline>
+                            <source src="/videos/DieuVideo.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div className="carousel-item">
-                        <img src="/images/power.png" alt="Slide 5" />
+                        <video autoPlay loop muted playsInline>
+                            <source src="/videos/EternelVideo.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div className="carousel-item">
-                        <img src="/images/secretToLoving.png" alt="Slide 6" />
+                        <video autoPlay loop muted playsInline>
+                            <source src="/videos/AmourVideo.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                 </Slider>
             </motion.div>

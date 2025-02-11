@@ -82,6 +82,10 @@ body {
   background-color: white;
 }
 
+.fontColorBlack {
+  color: black;
+}
+
 .logoUpDownMargin {
   margin: 5px 0;
 }
@@ -265,16 +269,27 @@ body {
 
 .left-carousel {
   left: 0;
+  top: 18rem;
 }
 
 .right-carousel {
   right: 0;
+  top: 18rem;
 }
 
-.carousel-item img {
+/*.carousel-item img {
   width: 100%;
-  height: 300px; /* Set a fixed height */
-  object-fit: cover; /* Ensures images fill the container without distortion */
+  height: 500px; !* Set a fixed height *!
+  object-fit: cover; !* Ensures images fill the container without distortion *!
+  border-radius: 10px;
+}*/
+
+
+.carousel-item video {
+  width: 100%;
+  height: 500px;
+  object-fit: cover; /* Ensures the video fills the container without distortion */
   border-radius: 10px;
 }
+
 
