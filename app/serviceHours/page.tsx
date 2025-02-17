@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ServiceHours() {
-    const contentRef = useRef(null);
+    const contentRef = useRef<HTMLElement>(null);  // Specify the type of the ref
 
     useEffect(() => {
         if (contentRef.current) {
