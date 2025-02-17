@@ -1,0 +1,12 @@
+$clr-primary: #0f2294;
+$clr-secondary: #ffffff;
+$clr-wht: #fffcf6;
+
+.serviceHoursList li strong {
+  color: $clr-primary;
+  font-family: "Luckiest Guy", cursive;
+  text-shadow: -6px -6px $clr-secondary, -5px -5px $clr-secondary,
+  -4px -4px $clr-secondary, -3px -3px $clr-secondary, -2px -2px $clr-secondary,
+  -1px -1px $clr-secondary, 1px 1px $clr-secondary, 2px 2px $clr-secondary;
+  width: 100%;
+}

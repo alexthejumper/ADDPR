@@ -338,4 +338,178 @@ body {
   }
 }
 
+.section2 {
+  /*height: 100vh !important;*/
+  /*min-height: 100vh;*/
+  background-color: black !important; ;
+}
+
+.section3 {
+  height: 100vh !important;
+  min-height: 100vh;
+  background-color: #ffffff !important; ;
+}
+
+.section4 {
+  height: 100vh !important;
+  min-height: 100vh;
+  background-color:#34fa8c !important; ;
+}
+
+.divider {
+  aspect-ratio: 960/300;
+/*  height: 300px;*/
+  /*background: no-repeat center;*/
+  background-size: cover;
+}
+
+.wave-1 {
+  background-image: url('/svg/wave.svg');
+}
+
+.wave-2 {
+  background-image: url('/svg/wave2.svg');
+}
+
+.wave-3 {
+  background-image: url('/svg/wave3.svg');
+}
+
+
+
+
+.glassmorphism {
+/*  max-width: 300px;*/
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /*max-width: 500px;*/
+  height: 300px;
+  padding: 35px;
+
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 20px;
+  background: none !important;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(15px);
+}
+
+
+.neonBorder {
+  animation: pulsate 1.5s infinite alternate;
+  border: 0.2rem solid #fff;
+  border-radius: 2rem;
+  box-shadow: 0 0 .2rem #fff,
+  0 0 .2rem #fff,
+  0 0 2rem #ff1616,
+  0 0 0.8rem #0089d2,
+  0 0 2.8rem #faff00,
+  inset 0 0 1.3rem #00ff95;
+}
+
+.card-footer {
+  font-size: 0.65em;
+  color: #446;
+}
+
+
+.backgroundNone {
+  background: none !important;
+}
+
+.margin2remOnSides {
+  margin: 0 2rem;
+}
+
+
+
+.gradient-background {
+  background: linear-gradient(314deg,#00ffed,#1bffa0,#1ba3ff);
+  background-size: 180% 180%;
+  animation: gradient-animation 7s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.sHtext{
+  /*font-size: 15rem;
+  text-align: center;
+  height:90vh;
+  line-height: 90vh;
+  color: #fcedd8;
+  background: #d52e3f;
+  font-family: 'Niconne', cursive;*/
+  /*font-weight: 700;*/
+  text-shadow: 5px 5px 0px #1a572a,  /* Deep Green */
+  10px 10px 0px #f4a261, /* Warm Orange */
+  15px 15px 0px #e76f51, /* Earthy Red */
+  20px 20px 0px #264653, /* Deep Teal */
+  25px 25px 0px #2a9d8f, /* Muted Turquoise */
+  30px 30px 0px #e9c46a, /* Mustard Yellow */
+  35px 35px 0px #8d99ae, /* Desaturated Blue */
+  40px 40px 0px #6a0572, /* Deep Purple */
+  45px 45px 0px #003049; /* Dark Navy */
+
+}
+
+
+@media (max-width: 768px) {
+  .sHtext {
+    text-shadow: none;
+    color: white !important;
+  }
+}
+
+.serviceHoursList li strong {
+  color: #0430e3 !important;
+  font-size: 2rem; /* Adjust based on your preference */
+}
+
+.heightAuto {
+  height: auto !important;
+}
+
+.fontSizeSpan {
+  font-size: 1.5rem !important;
+  font-weight: bold;
+}
+
+.redSpan {
+  color: red !important;
+}
+
+.blackSpan {
+  color: white !important;
+}
+
+.marginLeft {
+  margin-left: 2.5rem !important;
+}
+
+.redBackground {
+  background-color: red !important;
+}
+
+.fontColorWhite {
+  color: white !important;
+}
+
+.smallFontSize {
+  font-size: 1.1rem;
+}
+
 

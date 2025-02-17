@@ -224,3 +224,10 @@
         transform: translateY(0);
     }
 }
+
+.title2 {
+        font-size: var(--fs);
+        font-weight: 800;
+        letter-spacing: var(--ls);
+        margin: 0;
+}

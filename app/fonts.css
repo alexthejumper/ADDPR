@@ -1,7 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Protest+Revolution&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Niconne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 .permanent-marker-regular {
     font-family: "Permanent Marker", serif;
     font-weight: 400;
     font-style: normal;
 }
+
+.pacifico-regular {
+    font-family: "Pacifico", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.protest-revolution-regular {
+    font-family: "Protest Revolution", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.niconne-regular {
+    font-family: "Niconne", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.luckiest-guy-regular {
+    font-family: "Luckiest Guy", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.roboto-condensed-unique {
+                       font-family: "Roboto Condensed", serif;
+                       font-optical-sizing: auto;
+                       font-weight: 500;
+                       font-style: normal;
+                   }
+
+
+.oswald-font {
+             font-family: "Oswald", serif;
+             font-optical-sizing: auto;
+             font-weight: 500;
+             font-style: normal;
+         }
+
+
+.quicksand-unique {
+                font-family: "Quicksand", serif;
+                font-optical-sizing: auto;
+                font-weight: 50;
+                font-style: normal;
+            }
