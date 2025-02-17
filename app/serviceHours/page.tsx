@@ -7,26 +7,28 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ServiceHours() {
-    const contentRef = useRef<HTMLElement>(null);  // Specify the type of the ref
+    const contentRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         if (contentRef.current) {
             const elements = contentRef.current.children;
-            gsap.fromTo(
-                elements,
-                { opacity: 0, y: 30 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 1,
-                    ease: "power2.out",
-                    stagger: 0.3, // Delay between each line
-                    scrollTrigger: {
-                        trigger: contentRef.current,
-                        start: "top 80%",
-                    },
-                }
-            );
+            if (elements) { // Ensure children is not null
+                gsap.fromTo(
+                    elements,
+                    { opacity: 0, y: 30 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1,
+                        ease: "power2.out",
+                        stagger: 0.3, // Delay between each line
+                        scrollTrigger: {
+                            trigger: contentRef.current,
+                            start: "top 80%",
+                        },
+                    }
+                );
+            }
         }
     }, []);
 
