@@ -10,23 +10,26 @@ export default function ServiceHours() {
     const contentRef = useRef(null);
 
     useEffect(() => {
-        const elements = contentRef.current.children;
-        gsap.fromTo(
-            elements,
-            { opacity: 0, y: 30 },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: "power2.out",
-                stagger: 0.3, // Delay between each line
-                scrollTrigger: {
-                    trigger: contentRef.current,
-                    start: "top 80%",
-                },
-            }
-        );
+        if (contentRef.current) {
+            const elements = contentRef.current.children;
+            gsap.fromTo(
+                elements,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "power2.out",
+                    stagger: 0.3, // Delay between each line
+                    scrollTrigger: {
+                        trigger: contentRef.current,
+                        start: "top 80%",
+                    },
+                }
+            );
+        }
     }, []);
+
 
     return (
         <section className="section2 p-10 bg-gray-100">
