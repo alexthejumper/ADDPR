@@ -345,15 +345,15 @@ body {
 }
 
 .section3 {
-  height: 100vh !important;
-  min-height: 100vh;
-  background-color: #ffffff !important; ;
+  /*height: 100vh !important;
+  min-height: 100vh;*/
+  background-color: #ffffff !important;
 }
 
 .section4 {
   height: 100vh !important;
   min-height: 100vh;
-  background-color:#34fa8c !important; ;
+  background-color:#00008BFF !important; ;
 }
 
 .divider {
@@ -511,5 +511,42 @@ body {
 .smallFontSize {
   font-size: 1.1rem;
 }
+
+.headerFontSize {
+  font-size: clamp(4rem, 5vw, 10rem); /* Make heading more responsive */
+}
+
+.fontBlack {
+  color: black !important;
+}
+
+.flex {
+  display: flex !important;
+  justify-content: center;
+}
+
+
+@media (max-width: 768px) {
+  .map-container,
+  .image-container {
+    flex: 1 1 100%; /* On smaller screens, make each element take full width */
+  }
+
+  .zindex-1 {
+    z-index: 1 !important;
+  }
+}
+
+
+@media (max-width: 1449px) {
+  .locationText p {
+    text-align: center !important;
+  }
+
+  .right-carousel, .left-carousel {
+    display: none;
+  }
+}
+
 
 

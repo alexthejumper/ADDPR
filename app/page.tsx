@@ -8,8 +8,11 @@ import "./videoContainer.css";
 import "./knowMoreButton.css";
 
 import React from "react";
+import Image from "next/image";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
+
+import Map from "./components/Map";
 
 export default function Home() {
     const settings = {
@@ -389,9 +392,78 @@ export default function Home() {
             <div className="divider wave-2"></div>
 
             <section className="section3">
-                <div>
+                {/* Header */}
+                <div className="is-flex is-justify-content-center">
+                    <h1 className="roboto-condensed-unique fontBlack headerFontSize" style={{ textAlign: "center"}}>
+                        Find Your Way to Us
+                    </h1>
+                </div>
+
+                <br/>
+                <br/>
+
+                {/* Content Wrapper */}
+                <div style={{
+                    margin: "0 30px",
+                    display: "flex",
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "20px", // Adds spacing between elements
+                    textAlign: "center"
+                }}>
+                    {/* Left Side: Text + Image */}
+                    <div className="locationText" style={{ maxWidth: "500px", textAlign: "left", color: "black" }}>
+                        <p className="quicksand-unique" style={{ fontSize: "18px", lineHeight: "1.6" }}>
+                            Notre église est stratégiquement située à Petite-Rivière, offrant un espace chaleureux et accueillant pour le culte et la vie communautaire.
+                            Que vous nous rendiez visite pour la première fois ou que vous reveniez, nous serons ravis de vous accueillir !
+                        </p>
+
+                        <p className="quicksand-unique" style={{ fontSize: "18px", lineHeight: "1.6" }}>
+                            Facile à trouver, notre église dispose d’un arrêt de bus juste en face, rendant l’accès en transport publique encore plus pratique.
+                            Utilisez le map pour nous localiser.
+                        </p>
+
+                        <br/>
+
+                        <p style={{ fontSize: "18px", fontWeight: "bold" }}>
+                            📍 Addresse: Allee Tamarin, Camp Benoit <br />
+                        </p>
+
+                        <br/>
+
+                        <Image
+                            src="/images/eglise.png"
+                            alt="Church building"
+                            width={500}
+                            height={300}
+                            style={{ borderRadius: "10px", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}
+                        />
+                    </div>
+
+                    {/* Right Side: Map */}
+                    <div style={{ width: "100%", maxWidth: "870px", aspectRatio: "1.2", position: "relative" }}>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.798219623378!2d57.460488175007484!3d-20.184125281262244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217c51dc8440a141%3A0xf9deecb571319cc7!2sAssembl%C3%A9e%20de%20Dieu%20Petite%20Riviere!5e0!3m2!1sen!2smu!4v1739937414677!5m2!1sen!2smu"
+                            style={{
+                                width: "100%",
+                                height: "100%",
+                                border: "0",
+                                borderRadius: "10px",
+                                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+                                position: "absolute",
+                                top: 0,
+                                left: 0,
+                            }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                    </div>
+
                 </div>
             </section>
+
 
             <div className="divider wave-3"></div>
 
