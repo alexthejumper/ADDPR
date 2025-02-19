@@ -455,7 +455,7 @@ export default function Home() {
                                 top: 0,
                                 left: 0,
                             }}
-                            allowFullScreen=""
+                            /*allowFullScreen=""*/
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
                         ></iframe>
