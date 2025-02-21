@@ -1,0 +1,10 @@
+.formButton {
+    border-radius: 80px !important;
+    background: none !important;
+    border: 2px solid cyan !important;
+}
+
+.formButton:hover {
+    background-color: cyan !important;
+    color: black !important;
+}

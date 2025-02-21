@@ -1,0 +1,100 @@
+.form{
+    width:340px;
+    height:440px;
+    background:#e6e6e6;
+    border-radius:8px;
+    /*box-shadow:0 0 40px -10px #000;*/
+    /*margin:calc(50vh - 220px) auto;*/
+    padding: 0 30px;
+    max-width:calc(100vw - 40px);
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;position:relative
+}
+
+.form h2{
+    margin:10px 0;
+    padding-bottom:10px;
+    width: max-content;
+    color:#78788c;
+    border-bottom:3px solid #78788c;
+}
+
+.form p input, .form p textarea{
+    width:100%;
+    padding:10px;
+    box-sizing:border-box;
+    background:none;
+    outline:none;
+    resize:none;
+    border:0;
+    font-family:'Montserrat',sans-serif;
+    transition:all .3s;
+    border-bottom:2px solid #bebed2;
+    caret-color: white;
+    color: white;
+}
+
+.form p textarea {
+    height: 130px;
+}
+
+.form p input:focus,
+.form p textarea:focus {
+    border-bottom: 2px solid #00d0ff; /* Neon cyan bottom border */
+    box-shadow: 0 4px 8px -2px #00d9ff; /* Glow effect only at the bottom */
+    outline: none; /* Removes default focus outline */
+    transition: box-shadow 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+}
+
+
+
+.form p:before{
+    content:attr(type);
+    display:block;
+    margin:28px 0 0;
+    font-size:14px;
+    color:#5a5a5a
+}
+
+.form button{
+    float:right;
+    padding:8px 12px;
+    margin:8px 0 0;
+    font-family:'Montserrat',sans-serif;
+    border:2px solid #78788c;
+    background:0;
+    color:#5a5a6e;
+    cursor:pointer;
+    transition:all .3s
+}
+
+.form button:hover{
+    background:#78788c;color:#fff
+}
+
+.form div{
+    content:'Hi';
+    position:absolute;
+    bottom:-15px;
+    right:-20px;
+    background:#50505a;
+    color:#fff;
+    width:320px;
+    padding:16px 4px 16px 0;
+    border-radius:6px;
+    font-size:13px;
+    box-shadow:10px 10px 40px -14px #000
+}
+
+.form div span{
+    margin:0 5px 0 15px
+}
+
+.form input::placeholder, .form textarea::placeholder {
+    color: #00eaff; /* Change this to your desired color */
+    opacity: 1; /* Ensure visibility */
+}
+
+.form input:focus::placeholder, .form textarea:focus::placeholder {
+    color: rgba(0, 223, 255, 0.47); /* Optional: Change color when input is focused */
+}

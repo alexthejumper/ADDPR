@@ -351,8 +351,8 @@ body {
 }
 
 .section4 {
-  height: 100vh !important;
-  min-height: 100vh;
+  /*height: 100vh !important;
+  min-height: 100vh;*/
   background-color:#00008BFF !important; ;
 }
 

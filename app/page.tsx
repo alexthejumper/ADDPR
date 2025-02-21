@@ -6,13 +6,16 @@ import "./ServiceHoursTextStyles.scss";
 import "./NeonCards.scss";
 import "./videoContainer.css";
 import "./knowMoreButton.css";
+import "./footer.css";
+import "./form.css";
+import "./transparentEffect.css";
+import "./formButton.css";
+import "./socialMediaIcons.scss";
 
 import React from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
-
-import Map from "./components/Map";
 
 export default function Home() {
     const settings = {
@@ -468,9 +471,74 @@ export default function Home() {
             <div className="divider wave-3"></div>
 
             <section className="section4">
-                <div>
+                <div className="columns-container">
+                    {/* First Column - Video */}
+                    <video className="column video-column" autoPlay loop muted playsInline>
+                        <source src="/videos/render.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+
+                    {/* Second Column - Contact Form */}
+                    <div className="column form-column login-box" style={{ padding: "0"}}>
+                        {/*<h2>Contact Us</h2>*/}
+
+                        <form className="form">
+                            <h2 style={{ color: "white !important", fontSize: "2rem"}} className="marcellus">Contact Us</h2>
+                            <p style={{ color: "white !important", marginBottom: "20px"}} className="marcellus" >Name:<input placeholder="Write your name here.."></input></p>
+                            <p style={{ color: "white !important", marginBottom: "20px"}} className="marcellus" >Email:<input placeholder="Let us know how to contact you back.."></input></p>
+                            <p style={{ color: "white !important"}} className="marcellus" >Message:<textarea placeholder="What would you like to tell us.."></textarea></p>
+                            <button className="formButton">Send Message</button>
+                            {/*<div>
+                                <span className="fa fa-phone"></span>001 1023 567
+                                <span className="fa fa-envelope-o"></span> contact@company.com
+                            </div>*/}
+                        </form>
+
+                        {/*<input type="text" placeholder="Your Name" className="input-field" />
+                        <input type="email" placeholder="Your Email" className="input-field" />
+                        <textarea placeholder="Your Message" className="textarea-field"></textarea>
+                        <button className="submit-button">Send</button>*/}
+                    </div>
+
+                    {/* Third Column - Contact Details */}
+                    <div className="column details-column">
+                        <div style={{ marginBottom: "40px"}}>
+                            <h2 style={{ marginBottom: "15px", fontSize: "2rem"}} className="marcellus">Contact Details</h2>
+                            <br/>
+                            <p><strong className="marcellus">Address:</strong> Allee Tamarin, Camp Benoit, Petite Riviere</p>
+                            <br/>
+                            <p><strong className="marcellus">Phone:</strong> (+230) 5 929 1029</p>
+                            <br/>
+                            <p className="contact-container">
+                                <strong className="mail"></strong>
+                                <a href="mailto:assembleepetiteriviere22@gmail.com">assembleepetiteriviere22@gmail.com</a>
+                            </p>
+                        </div>
+
+                        <div style={{ display: "block"}} className="button-container">
+
+                            <h2 style={{ marginBottom: "15", fontSize: "2rem"}} className="marcellus">Suivez Nous</h2>
+
+                            <br/>
+
+                            <div className="glass-btn blue-btn">
+                                <Image
+                                    className="facebook-image"
+                                    src="/images/facebook.png"
+                                    alt="facebook"
+                                    width={500}
+                                    height={300}
+                                    /*style={{ borderRadius: "10px", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}*/
+                                />
+                                {/*<img src="https://i.postimg.cc/DwbWDQTx/facebook.png" alt="facebook" style={{ width: "5.5em;"}} />*/}
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
             </section>
+
         </div>
     );
 }
