@@ -11,8 +11,9 @@ import "./form.css";
 import "./transparentEffect.css";
 import "./formButton.css";
 import "./socialMediaIcons.scss";
+import "./floatingSuccessMessageSent.css";
 
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
@@ -29,6 +30,60 @@ export default function Home() {
         pauseOnHover: false,
         fade: true
     };
+
+
+
+    // State for the form fields
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    const [status, setStatus] = useState('');
+    const [statusVisible, setStatusVisible] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus(''); // Reset the status message
+
+        // Prepare form data to send to the backend API
+        const formData = {
+            name,
+            email,
+            message,
+        };
+
+        try {
+            const response = await fetch('/api/sendEmail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                setStatus('Your message has been sent!');
+                setName('');
+                setEmail('');
+                setMessage('');
+            } else {
+                setStatus(`Error: ${result.error}`);
+            }
+        } catch (error) {
+            setStatus('Something went wrong. Please try again.');
+        }
+        setStatusVisible(true);
+    };
+
+    // Hide status message after 5 seconds
+    useEffect(() => {
+        if (statusVisible) {
+            const timer = setTimeout(() => {
+                setStatusVisible(false);
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [statusVisible]);
 
     return (
         <div className="blueBackgroundColor">
@@ -482,17 +537,49 @@ export default function Home() {
                     <div className="column form-column login-box" style={{ padding: "0"}}>
                         {/*<h2>Contact Us</h2>*/}
 
-                        <form className="form">
-                            <h2 style={{ color: "white !important", fontSize: "2rem"}} className="marcellus">Contact Us</h2>
-                            <p style={{ color: "white !important", marginBottom: "20px"}} className="marcellus" >Name:<input placeholder="Write your name here.."></input></p>
-                            <p style={{ color: "white !important", marginBottom: "20px"}} className="marcellus" >Email:<input placeholder="Let us know how to contact you back.."></input></p>
-                            <p style={{ color: "white !important"}} className="marcellus" >Message:<textarea placeholder="What would you like to tell us.."></textarea></p>
-                            <button className="formButton">Send Message</button>
-                            {/*<div>
-                                <span className="fa fa-phone"></span>001 1023 567
-                                <span className="fa fa-envelope-o"></span> contact@company.com
-                            </div>*/}
+                        <form className="form" onSubmit={handleSubmit}>
+                            <h2 style={{ color: 'white', fontSize: '2rem' }} className="marcellus">Contact Us</h2>
+                            <p style={{ color: 'white', marginBottom: '20px' }} className="marcellus">
+                                Name:
+                                <input
+                                    type="text"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    placeholder="Write your name here.."
+                                    required
+                                />
+                            </p>
+                            <p style={{ color: 'white', marginBottom: '20px' }} className="marcellus">
+                                Email:
+                                <input
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="Let us know how to contact you back.."
+                                    required
+                                />
+                            </p>
+                            <p style={{ color: 'white' }} className="marcellus">
+                                Message:
+                                <textarea
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
+                                    placeholder="What would you like to tell us.."
+                                    required
+                                ></textarea>
+                            </p>
+                            <button type="submit" className="formButton">Send Message</button>
+
+                            {/*{status && <p>{status}</p>}*/}
                         </form>
+
+
+                        {/* Floating status message */}
+                        {statusVisible && status && (
+                            <div className="status-message">
+                                {status}
+                            </div>
+                        )}
 
                         {/*<input type="text" placeholder="Your Name" className="input-field" />
                         <input type="email" placeholder="Your Email" className="input-field" />
