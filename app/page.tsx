@@ -539,7 +539,7 @@ export default function Home() {
 
                         <form className="form" onSubmit={handleSubmit}>
                             <h2 style={{ color: 'white', fontSize: '2rem' }} className="marcellus">Contact Us</h2>
-                            <p style={{ color: 'white', marginBottom: '20px' }} className="marcellus">
+                            <p style={{ color: 'white', marginBottom: '20px' }} className="marcellus remainLeft">
                                 Name:
                                 <input
                                     type="text"
@@ -549,7 +549,7 @@ export default function Home() {
                                     required
                                 />
                             </p>
-                            <p style={{ color: 'white', marginBottom: '20px' }} className="marcellus">
+                            <p style={{ color: 'white', marginBottom: '20px' }} className="marcellus remainLeft">
                                 Email:
                                 <input
                                     type="email"
@@ -559,7 +559,7 @@ export default function Home() {
                                     required
                                 />
                             </p>
-                            <p style={{ color: 'white' }} className="marcellus">
+                            <p style={{ color: 'white' }} className="marcellus remainLeft">
                                 Message:
                                 <textarea
                                     value={message}
@@ -587,6 +587,9 @@ export default function Home() {
                         <button className="submit-button">Send</button>*/}
                     </div>
 
+                    {/* Separation Line */}
+                    <hr className="horizontal-line" style={{ width: "100%", border: "1px solid white", margin: "30px 0" }} />
+
                     {/* Third Column - Contact Details */}
                     <div className="column details-column">
                         <div style={{ marginBottom: "40px"}}>
@@ -608,17 +611,17 @@ export default function Home() {
 
                             <br/>
 
-                            <div className="glass-btn blue-btn">
-                                <Image
-                                    className="facebook-image"
-                                    src="/images/facebook.png"
-                                    alt="facebook"
-                                    width={500}
-                                    height={300}
-                                    /*style={{ borderRadius: "10px", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}*/
-                                />
-                                {/*<img src="https://i.postimg.cc/DwbWDQTx/facebook.png" alt="facebook" style={{ width: "5.5em;"}} />*/}
-                            </div>
+                            <a href="https://www.facebook.com/profile.php?id=61572844235340" target="_blank" rel="noopener noreferrer">
+                                <div className="glass-btn blue-btn">
+                                    <Image
+                                        className="facebook-image"
+                                        src="/images/facebook.png"
+                                        alt="facebook"
+                                        width={500}
+                                        height={300}
+                                    />
+                                </div>
+                            </a>
 
                         </div>
 

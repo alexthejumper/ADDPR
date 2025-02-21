@@ -98,3 +98,8 @@
 .form input:focus::placeholder, .form textarea:focus::placeholder {
     color: rgba(0, 223, 255, 0.47); /* Optional: Change color when input is focused */
 }
+
+
+.remainLeft {
+    text-align: left !important;
+}
