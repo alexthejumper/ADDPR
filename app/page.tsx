@@ -93,7 +93,7 @@ export default function Home() {
             </motion.div>
 
             {/* Main Content */}
-            <section className="hero is-fullheight">
+            <section id="home" className="hero is-fullheight">
                 <div className="hero-body">
                     <div className="container has-text-centered">
                         <div className="split-text-container">
@@ -166,7 +166,7 @@ export default function Home() {
 
             {/*<div className="divider wave-1"></div>*/}
 
-            <section className="next-section section2">
+            <section id="service-hours" className="next-section section2">
                 <div className="site-container">
                     <div className="columns is-vcentered is-variable is-8 margin2remOnSides">
 
@@ -394,7 +394,7 @@ export default function Home() {
 
             <div className="divider wave-2"></div>
 
-            <section className="section3">
+            <section id="location" className="section3">
                 {/* Header */}
                 <div className="is-flex is-justify-content-center">
                     <h1 className="roboto-condensed-unique fontBlack headerFontSize" style={{ textAlign: "center"}}>
@@ -470,7 +470,7 @@ export default function Home() {
 
             <div className="divider wave-3"></div>
 
-            <section className="section4">
+            <section id="contact" className="section4">
                 <div className="columns-container">
                     {/* First Column - Video */}
                     <video className="column video-column" autoPlay loop muted playsInline>
