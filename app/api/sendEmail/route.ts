@@ -16,8 +16,8 @@ export async function POST(req: Request) {
 
         // Set up email data
         const mailOptions = {
-            from: process.env.GMAIL_USER, // Sender's email address
-            to: process.env.GMAIL_USER, // Receiver's email address (you can change this to any recipient email)
+            from: "assembleepetiteriviere22@gmail.com", // Sender's email address
+            to: "assembleepetiteriviere22@gmail.com", // Receiver's email address (you can change this to any recipient email)
             subject: `New contact message from ${name}`, // Subject line
             text: `You have received a new message from:
 
