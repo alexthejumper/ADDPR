@@ -17,6 +17,7 @@ import React, {useEffect, useState} from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
+import HomeButtonContact from "@/app/components/HomeButtonContact";
 
 export default function Home() {
     const settings = {
@@ -176,9 +177,8 @@ export default function Home() {
                             {/* eslint-disable-next-line react/no-unescaped-entities */}
                             Rejoignez-nous dans l'adoration et la communion chaque dimanche.
                         </h2>
-                        <Link href="/contact/" className="button is-light is-large mt-4">
-                            Contactez Nous
-                        </Link>
+
+                        <HomeButtonContact />
                     </div>
                 </div>
 
@@ -588,7 +588,7 @@ export default function Home() {
                     </div>
 
                     {/* Separation Line */}
-                    <hr className="horizontal-line" style={{ width: "100%", border: "1px solid white", margin: "30px 0" }} />
+                    <hr className="horizontal-line" style={{ width: "100%", border: "1px solid white", margin: "30px 0", background: "white", borderRadius: "10px" }} />
 
                     {/* Third Column - Contact Details */}
                     <div className="column details-column">
