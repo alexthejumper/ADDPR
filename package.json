@@ -20,7 +20,8 @@
     "react-leaflet": "^5.0.0",
     "react-slick": "^0.30.3",
     "sass": "^1.84.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "smooth-scrollbar": "^8.8.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
