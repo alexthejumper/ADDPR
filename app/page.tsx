@@ -18,6 +18,8 @@ import Image from "next/image";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 import HomeButtonContact from "@/app/components/HomeButtonContact";
+import {setupVideoVisibility} from "@/app/lib/videoBackroundStarter";
+import {setupVideoVisibilityInCarousel} from "@/app/lib/carouselVideoBackgroundStarter";
 
 export default function Home() {
     const settings = {
@@ -86,6 +88,31 @@ export default function Home() {
         }
     }, [statusVisible]);
 
+
+
+    useEffect(() => {
+        // Pass an array of video IDs to the setup function
+        const cleanupObserver = setupVideoVisibility(['video-background-1', 'video-background-2', 'video-background-3']);
+
+        return () => {
+            cleanupObserver(); // Cleanup when the component unmounts
+        };
+    }, []);
+
+
+    useEffect(() => {
+        // Set up video visibility for both carousels
+        const cleanupLeftCarousel = setupVideoVisibilityInCarousel('.left-carousel');
+        const cleanupRightCarousel = setupVideoVisibilityInCarousel('.right-carousel');
+
+        return () => {
+            // Clean up the observers when the component unmounts
+            cleanupLeftCarousel();
+            cleanupRightCarousel();
+        };
+    }, []);
+
+
     return (
         <div className="blueBackgroundColor">
             {/* Left Carousel */}
@@ -99,19 +126,19 @@ export default function Home() {
                 <Slider {...settings}>
                     <div className="carousel-item">
                         <video autoPlay loop muted playsInline>
-                            <source src="/videos/JesusVideo.mp4" type="video/mp4" />
+                            <source src="/videos/Jesusvideo.webm" type="video/webm" />
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div className="carousel-item">
                         <video autoPlay loop muted playsInline>
-                            <source src="/videos/YeshuaVideo.mp4" type="video/mp4" />
+                            <source src="/videos/Yeshuavideo.webm" type="video/webm" />
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div className="carousel-item">
                         <video autoPlay loop muted playsInline>
-                            <source src="/videos/SauveurVideo.mp4" type="video/mp4" />
+                            <source src="/videos/Sauveurvideo.webm" type="video/webm" />
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -129,19 +156,19 @@ export default function Home() {
                 <Slider {...settings}>
                     <div className="carousel-item">
                         <video autoPlay loop muted playsInline>
-                            <source src="/videos/DieuVideo.mp4" type="video/mp4" />
+                            <source src="/videos/Dieuvideo.webm" type="video/webm" />
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div className="carousel-item">
                         <video autoPlay loop muted playsInline>
-                            <source src="/videos/EternelVideo.mp4" type="video/mp4" />
+                            <source src="/videos/Eternelvideo.webm" type="video/webm" />
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div className="carousel-item">
                         <video autoPlay loop muted playsInline>
-                            <source src="/videos/AmourVideo.mp4" type="video/mp4" />
+                            <source src="/videos/Amourvideo.webm" type="video/webm" />
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -184,7 +211,7 @@ export default function Home() {
 
                 {/* Video Background Section */}
                 <div className="video-container">
-                    <video autoPlay loop muted playsInline className="video-background">
+                    <video id="video-background-1" autoPlay loop muted playsInline className="video-background">
                         <source src="/videos/ocean2.mp4" type="video/mp4" />
                         Votre navigateur ne supporte pas la vidéo.
                     </video>
@@ -233,8 +260,8 @@ export default function Home() {
                         {/* Right Column */}
                         <div className="column is-6 is-justify-content-center">
                             {/* Add Video Here */}
-                            <video className="service-video" width="100%" autoPlay loop muted>
-                                <source src="/videos/scene.mp4" type="video/mp4" />
+                            <video id="video-background-3" className="service-video" width="100%" autoPlay loop muted>
+                                <source src="/videos/scene.webm" type="video/webm" />
                                 Your browser does not support the video tag.
                             </video>
                             {/* Alternative: Embed YouTube */}
@@ -528,7 +555,8 @@ export default function Home() {
             <section id="contact" className="section4">
                 <div className="columns-container">
                     {/* First Column - Video */}
-                    <video className="column video-column" autoPlay loop muted playsInline>
+                    <video id="video-background-2" className="column video-column" autoPlay loop muted playsInline>
+                        {/*<source src="/videos/render.webm" type="video/webm" />*/}
                         <source src="/videos/render.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
