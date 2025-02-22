@@ -28,7 +28,7 @@ export default function Navbar() {
             <nav className="navbar main-navbar" role="navigation">
                 <div className="container">
                     <div className="navbar-brand">
-                        <Link href="/" className="navbar-item h-100px">
+                        <Link href="#home" className="navbar-item h-100px">
                             <Image className="logoUpDownMargin" src="/logoWithoutBg.png" alt="Church Image" width={100} height={60} />
                             <strong className="permanent-marker-regular is-size-3">Petite Rivière</strong>
                         </Link>
@@ -74,8 +74,8 @@ export default function Navbar() {
                 <nav className="navbar is-dark is-fixed-top sticky-navbar" role="navigation">
                     <div className="container">
                         <div className="navbar-brand">
-                            <Link href="/" className="navbar-item">
-                                <strong>Church</strong>
+                            <Link href="#home" className="navbar-item">
+                                <Image className="logoUpDownMargin" src="/logoWithoutBg.png" alt="Church Image" width={50} height={60} />
                             </Link>
                             {/* Hamburger Menu Toggle */}
                             <button
