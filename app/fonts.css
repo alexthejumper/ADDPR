@@ -77,7 +77,7 @@
                     font-style: normal;
                 }
 
-.marcellus {
+.marcellusSC {
     font-family: 'Marcellus SC', serif;
     font-weight: bold;
 }
@@ -93,3 +93,11 @@
     font-weight: 700;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Marcellus';
+    src: url("/fonts/Marcellus-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
