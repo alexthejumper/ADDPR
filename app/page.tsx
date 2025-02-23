@@ -639,17 +639,19 @@ export default function Home() {
 
                             <br/>
 
-                            <a href="https://www.facebook.com/profile.php?id=61572844235340" target="_blank" rel="noopener noreferrer">
+                            <div className="facebook-icon">
                                 <div className="glass-btn blue-btn">
-                                    <Image
-                                        className="facebook-image"
-                                        src="/images/facebook.png"
-                                        alt="facebook"
-                                        width={500}
-                                        height={300}
-                                    />
+                                    <a href="https://www.facebook.com/profile.php?id=61572844235340" target="_blank" rel="noopener noreferrer">
+                                        <Image
+                                            className="facebook-image"
+                                            src="/images/facebook.png"
+                                            alt="facebook"
+                                            width={500}
+                                            height={300}
+                                        />
+                                    </a>
                                 </div>
-                            </a>
+                            </div>
 
                         </div>
 
