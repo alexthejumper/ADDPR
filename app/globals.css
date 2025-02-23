@@ -132,7 +132,7 @@ body {
 }
 
 .navbar-menu {
-  background-color: #F7F7F7 !important;
+  background-color: #ffffff !important;
 }
 
 
@@ -581,6 +581,12 @@ body {
 @media (max-width: 390px) {
   html {
     width: 115% !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .navbar-item {
+    text-align: center !important;
   }
 }
 
