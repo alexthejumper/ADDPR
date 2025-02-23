@@ -566,8 +566,8 @@ export default function Home() {
                         {/*<h2>Contact Us</h2>*/}
 
                         <form className="form" onSubmit={handleSubmit}>
-                            <h2 style={{ color: 'white', fontSize: '2rem' }} className="marcellusSC">Contact Us</h2>
-                            <p style={{ color: 'white', marginBottom: '20px' }} className="marcellusSC remainLeft">
+                            <h2 style={{ color: 'white', fontSize: '2rem', fontFamily: "Marcellus" }}>Contact Us</h2>
+                            <p style={{ color: 'white', marginBottom: '20px', fontFamily: "Marcellus" }} className="remainLeft">
                                 Name:
                                 <input
                                     type="text"
@@ -577,7 +577,7 @@ export default function Home() {
                                     required
                                 />
                             </p>
-                            <p style={{ color: 'white', marginBottom: '20px' }} className="marcellusSC remainLeft">
+                            <p style={{ color: 'white', marginBottom: '20px', fontFamily: "Marcellus" }} className="remainLeft">
                                 Email:
                                 <input
                                     type="email"
@@ -587,7 +587,7 @@ export default function Home() {
                                     required
                                 />
                             </p>
-                            <p style={{ color: 'white' }} className="marcellusSC remainLeft">
+                            <p style={{ color: 'white', fontFamily: "Marcellus" }} className="remainLeft">
                                 Message:
                                 <textarea
                                     value={message}
@@ -621,11 +621,11 @@ export default function Home() {
                     {/* Third Column - Contact Details */}
                     <div className="column details-column">
                         <div style={{ marginBottom: "40px"}}>
-                            <h2 style={{ marginBottom: "15px", fontSize: "2rem"}} className="marcellusSC">Contact Details</h2>
+                            <h2 style={{ marginBottom: "15px", fontSize: "2rem", fontFamily: "Marcellus"}}>Contact Details</h2>
                             <br/>
-                            <p><strong className="marcellusSC">Address:</strong> Allee Tamarin, Camp Benoit, Petite Riviere</p>
+                            <p><strong style={{ fontFamily: "Marcellus" }}>Address:</strong> Allee Tamarin, Camp Benoit, Petite Riviere</p>
                             <br/>
-                            <p><strong className="marcellusSC">Phone:</strong> (+230) 5 929 1029</p>
+                            <p><strong style={{ fontFamily: "Marcellus" }}>Phone:</strong> (+230) 5 929 1029</p>
                             <br/>
                             <p className="contact-container">
                                 <strong className="mail"></strong>
@@ -635,7 +635,7 @@ export default function Home() {
 
                         <div style={{ display: "block"}} className="button-container">
 
-                            <h2 style={{ marginBottom: "15", fontSize: "2rem", fontFamily: "Marcellus"}} className="">Suivez Nous</h2>
+                            <h2 style={{ marginBottom: "15", fontSize: "2rem", fontFamily: "Marcellus"}}>Suivez Nous</h2>
 
                             <br/>
 
