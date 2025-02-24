@@ -239,7 +239,7 @@ export default function Home() {
 
                             <br/>
 
-                            <button className="button-57" role="button"><span className="text">En savoir plus sur nous</span><span className="arrow whiteArrow"></span></button>
+                            <button className="button-57" role="button"><span className="text">En savoir plus sur nous</span><span className="arrowKnowMore whiteArrow"></span></button>
 
                         </div>
                     </div>
