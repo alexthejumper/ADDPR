@@ -182,11 +182,13 @@ body {
 .text-part.left {
   transform: translateX(-200%);
   animation-name: slide-in-left;
+  animation-delay: 5s;
 }
 
 .text-part.right {
   transform: translateX(200%);
   animation-name: slide-in-right;
+  animation-delay: 5s;
 }
 
 @keyframes slide-in-left {

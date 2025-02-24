@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
 import Head from "next/head";
+import Preloader from "@/app/components/Preloader";
 
 export const metadata: Metadata = {
     title: "ADD Petite Riviere",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         </Head>
         <body>
+        <Preloader />
         <Navbar />
         {children}
         </body>
