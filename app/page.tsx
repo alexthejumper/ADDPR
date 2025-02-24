@@ -623,9 +623,9 @@ export default function Home() {
                         <div style={{ marginBottom: "40px"}}>
                             <h2 style={{ marginBottom: "15px", fontSize: "2rem", fontFamily: "Marcellus", color: "white"}}>Contact Details</h2>
                             <br/>
-                            <p style={{ color: "white" }}><strong style={{ fontFamily: "Marcellus", color: "white" }}>Address:</strong> Allee Tamarin, Camp Benoit, Petite Riviere</p>
+                            <p className="contact-container" style={{ color: "white" }}><strong className="address"></strong> Allee Tamarin, Camp Benoit, Petite Riviere</p>
                             <br/>
-                            <p style={{ color: "white" }}><strong style={{ fontFamily: "Marcellus", color: "white" }}>Phone:</strong> (+230) 5 929 1029</p>
+                            <p className="contact-container" style={{ color: "white" }}><strong className="phone"></strong> (+230) 5 929 1029</p>
                             <br/>
                             <p className="contact-container">
                                 <strong className="mail"></strong>

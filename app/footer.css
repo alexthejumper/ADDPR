@@ -95,6 +95,28 @@
     filter: invert(100%) sepia(100%) saturate(200%) hue-rotate(180deg); /* Adjust to get cyan */
 }
 
+.address {
+    display: inline-block; /* Makes the element respect width/height */
+    width: 50px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height */
+    background-image: url('/svg/home.svg'); /* Ensure correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: invert(100%) sepia(100%) saturate(200%) hue-rotate(180deg); /* Adjust to get cyan */
+}
+
+.phone {
+    display: inline-block; /* Makes the element respect width/height */
+    width: 50px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height */
+    background-image: url('/svg/phone.svg'); /* Ensure correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: invert(100%) sepia(100%) saturate(200%) hue-rotate(180deg); /* Adjust to get cyan */
+}
+
 
 .contact-container {
     display: flex;
