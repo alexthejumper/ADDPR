@@ -26,3 +26,17 @@
         visibility: hidden;
     }
 }
+
+.dank-ass-loader {
+    display: none !important;
+}
+
+@media (max-width: 430px) {
+    #fish-video {
+        display: none !important;
+    }
+
+    .dank-ass-loader {
+        display: flex !important;
+    }
+}
