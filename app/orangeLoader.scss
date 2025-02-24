@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $color: #fd7000;
 $size: 12px;
 $time: 1;
@@ -15,7 +17,7 @@ $time: 1;
 .arrow {
   width: 0;
   height: 0;
-  margin: 0 (-$size / 2);
+  margin: 0 math.div(-$size, 2); // Fix the division
   border-left: $size solid transparent;
   border-right: $size solid transparent;
   border-bottom: ($size * 1.8) solid $color;
