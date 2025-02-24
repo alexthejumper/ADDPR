@@ -1,11 +1,18 @@
 "use client";
 
-import React from "react";
+import React, {useEffect} from "react";
 import "../Preloader.css";
 import "../orangeLoader.scss";
-import "../lib/hidePreloader";
 
 const Preloader = () => {
+
+    useEffect(() => {
+        setTimeout(() => {
+            const preloader = document.getElementById("preloader");
+            if (preloader) preloader.style.display = "none"; // Hide preloader after animation
+        }, 6000); // 5s animation + 1s buffer
+    }, []); // Run once after component mounts
+
     return (
         <div id="preloader" className="preloader">
             <video id="fish-video" autoPlay muted playsInline>
