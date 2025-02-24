@@ -375,7 +375,7 @@ export default function Home() {
                                 <div className="face face1">
                                     <div className="contentcard">
                                         <span className="stars"></span>
-                                        <h1 className="redSpan fontSizeSpan">CLOSED</h1>
+                                        <h1 style={{fontFamily: "Marcellus" }} className="redSpan fontSizeSpan">CLOSED</h1>
                                     </div>
                                 </div>
                                 <div className="face face2">
@@ -387,8 +387,8 @@ export default function Home() {
                                 <div className="face face1">
                                     <div className="contentcard">
                                         <span className="stars"></span>
-                                        <h2 className="python sessionContentFontSize centerText">Reunion d'Edification</h2>
-                                        <p className="python sessionContentFontSize centerText">17:00 - 18:00</p>
+                                        <h2 style={{fontFamily: "Marcellus" }} className="python sessionContentFontSize centerText">Reunion d'Edification</h2>
+                                        <p style={{fontFamily: "Marcellus" }} className="python sessionContentFontSize centerText">17:00 - 18:00</p>
                                     </div>
                                 </div>
                                 <div className="face face2">
@@ -400,8 +400,8 @@ export default function Home() {
                                 <div className="face face1">
                                     <div className="contentcard">
                                         <span className="stars"></span>
-                                        <h2 className="java sessionContentFontSize centerText">Reunion d'Intercession</h2>
-                                        <p className="java sessionContentFontSize centerText">10:00 - Midi</p>
+                                        <h2 style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">Reunion d'Intercession</h2>
+                                        <p style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">10:00 - Midi</p>
                                     </div>
                                 </div>
                                 <div className="face face2">
@@ -413,8 +413,8 @@ export default function Home() {
                                 <div className="face face1">
                                     <div className="contentcard">
                                         <span className="stars"></span>
-                                        <h2 className="python sessionContentFontSize centerText">Reunion de Priere</h2>
-                                        <p className="python sessionContentFontSize centerText">17:00 - 18:00</p>
+                                        <h2 style={{fontFamily: "Marcellus" }} className="python sessionContentFontSize centerText">Reunion de Priere</h2>
+                                        <p style={{fontFamily: "Marcellus" }} className="python sessionContentFontSize centerText">17:00 - 18:00</p>
                                     </div>
                                 </div>
                                 <div className="face face2">
@@ -426,7 +426,7 @@ export default function Home() {
                                 <div className="face face1">
                                     <div className="contentcard">
                                         <span className="stars"></span>
-                                        <h1 className="redSpan fontSizeSpan">CLOSED</h1>
+                                        <h1 style={{fontFamily: "Marcellus" }} className="redSpan fontSizeSpan">CLOSED</h1>
                                     </div>
                                 </div>
                                 <div className="face face2">
@@ -438,7 +438,7 @@ export default function Home() {
                                 <div className="face face1">
                                     <div className="contentcard">
                                         <span className="stars"></span>
-                                        <h1 className="redSpan fontSizeSpan">CLOSED</h1>
+                                        <h1 style={{fontFamily: "Marcellus" }} className="redSpan fontSizeSpan">CLOSED</h1>
                                     </div>
                                 </div>
                                 <div className="face face2">
@@ -450,16 +450,16 @@ export default function Home() {
                                 <div className="face face1">
                                     <div className="contentcard">
                                         <span className="stars"></span>
-                                        <h2 className="java sessionContentFontSize centerText">Reunion de Priere</h2>
-                                        <p className="java sessionContentFontSize centerText">05:00 - 06:00</p>
+                                        <h2 style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">Reunion de Priere</h2>
+                                        <p style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">05:00 - 06:00</p>
                                         <br/>
                                         <span className="stars"></span>
-                                        <h2 className="java sessionContentFontSize centerText">1er Culte</h2>
-                                        <p className="java sessionContentFontSize centerText">08:00 - 10:00</p>
+                                        <h2 style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">1er Culte</h2>
+                                        <p style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">08:00 - 10:00</p>
                                         <br/>
                                         <span className="stars"></span>
-                                        <h2 className="java sessionContentFontSize centerText">2eme Culte</h2>
-                                        <p className="java sessionContentFontSize centerText">14:00 - 15:30</p>
+                                        <h2 style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">2eme Culte</h2>
+                                        <p style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">14:00 - 15:30</p>
                                     </div>
                                 </div>
                                 <div className="face face2">

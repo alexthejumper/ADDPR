@@ -49,19 +49,19 @@ export default function Navbar() {
                     {/* Navbar Menu (Hidden on mobile, shown when menu is open) */}
                     <div className={`navbar-menu ${isMenuOpen ? "is-active" : ""}`}>
                         <div className="navbar-end">
-                            <Link href="#home" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                            <Link style={{ fontFamily: "Monda"}} href="#home" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                 Home
                             </Link>
-                            <Link href="#service-hours" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                            <Link style={{ fontFamily: "Monda"}} href="#service-hours" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                 Service Hours
                             </Link>
-                            <Link href="#location" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                            <Link style={{ fontFamily: "Monda"}} href="#location" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                 Location
                             </Link>
-                            <Link href="#contact" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                            <Link style={{ fontFamily: "Monda"}} href="#contact" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                 Contact
                             </Link>
-                            <Link href="#about" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                            <Link style={{ fontFamily: "Monda"}} href="#about" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                 About Us
                             </Link>
                         </div>
@@ -94,19 +94,19 @@ export default function Navbar() {
                         {/* Sticky Navbar Menu */}
                         <div className={`navbar-menu ${isMenuOpen ? "is-active" : ""}`}>
                             <div className="navbar-end">
-                                <Link href="#home" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                                <Link style={{ fontFamily: "Monda"}} href="#home" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                     Home
                                 </Link>
-                                <Link href="#service-hours" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                                <Link style={{ fontFamily: "Monda"}} href="#service-hours" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                     Service Hours
                                 </Link>
-                                <Link href="#location" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                                <Link style={{ fontFamily: "Monda"}} href="#location" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                     Location
                                 </Link>
-                                <Link href="#contact" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                                <Link style={{ fontFamily: "Monda"}} href="#contact" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                     Contact
                                 </Link>
-                                <Link href="#about" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                                <Link style={{ fontFamily: "Monda"}} href="#about" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                     About Us
                                 </Link>
                             </div>
