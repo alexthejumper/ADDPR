@@ -177,6 +177,7 @@ body {
   animation-duration: 2s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
+  font-size: clamp(4rem, 5vw, 10rem); /* Responsive text size */
 }
 
 .text-part.left {
@@ -591,6 +592,13 @@ body {
     text-align: center !important;
   }
 }
+
+/* Adjust for smaller screens */
+/*@media (max-width: 600px) {
+  .text-part {
+    font-size: clamp(1.5rem, 8vw, 4rem);
+  }
+}*/
 
 
 
