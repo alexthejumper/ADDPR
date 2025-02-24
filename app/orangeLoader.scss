@@ -30,13 +30,13 @@ $time: 1;
 
   @for $i from 1 through 18 {
     &.outer-#{$i} {
-      animation-delay: -($time / 18) * $i + s;
+      animation-delay: -(math.div($time, 18)) * $i + s;
     }
   }
 
   @for $i from 1 through 6 {
     &.inner-#{$i} {
-      animation-delay: -($time / 6) * $i + s;
+      animation-delay: -(math.div($time, 6)) * $i + s;
     }
   }
 }
