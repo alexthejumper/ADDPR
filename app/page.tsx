@@ -485,7 +485,7 @@ export default function Home() {
 
             <section id="location" className="section3">
                 {/* Header */}
-                <div className="is-flex is-justify-content-center">
+                <div style={{ margin: "0 20px "}} className="is-flex is-justify-content-center">
                     <h1 className="roboto-condensed-unique fontBlack headerFontSize" style={{ textAlign: "center"}}>
                         Find Your Way to Us
                     </h1>

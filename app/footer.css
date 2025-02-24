@@ -188,10 +188,16 @@
     justify-content: center;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
     .facebook-icon {
         display: flex;
         justify-content: left;
+    }
+}
+
+@media (max-width: 430px) {
+    #video-background-2 {
+        display: none !important;
     }
 }
 
