@@ -434,11 +434,18 @@ export default function Home() {
                                 </div>
                             </div>
 
-                            <div className="cardcard neonText redBackgroundCard">
+                            <div className="cardcard neonText">
                                 <div className="face face1">
                                     <div className="contentcard">
                                         <span className="stars"></span>
-                                        <h1 style={{fontFamily: "Marcellus" }} className="redSpan fontSizeSpan">CLOSED</h1>
+                                        {/*<h1 style={{fontFamily: "Marcellus" }} className="redSpan fontSizeSpan">CLOSED</h1>*/}
+                                        <span className="stars"></span>
+                                        <h2 style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">Ecole des Enfants</h2>
+                                        <p style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">13:00 - 14:30</p>
+                                        <br/>
+                                        <span className="stars"></span>
+                                        <h2 style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">Chorale</h2>
+                                        <p style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">16:00 - 17:30</p>
                                     </div>
                                 </div>
                                 <div className="face face2">
@@ -450,16 +457,16 @@ export default function Home() {
                                 <div className="face face1">
                                     <div className="contentcard">
                                         <span className="stars"></span>
-                                        <h2 style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">Reunion de Priere</h2>
-                                        <p style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">05:00 - 06:00</p>
+                                        <h2 style={{fontFamily: "Marcellus" }} className="python sessionContentFontSize centerText">Reunion de Priere</h2>
+                                        <p style={{fontFamily: "Marcellus" }} className="python sessionContentFontSize centerText">05:00 - 06:00</p>
                                         <br/>
                                         <span className="stars"></span>
-                                        <h2 style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">1er Culte</h2>
-                                        <p style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">08:00 - 10:00</p>
+                                        <h2 style={{fontFamily: "Marcellus" }} className="python sessionContentFontSize centerText">1er Culte</h2>
+                                        <p style={{fontFamily: "Marcellus" }} className="python sessionContentFontSize centerText">08:00 - 10:00</p>
                                         <br/>
                                         <span className="stars"></span>
-                                        <h2 style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">2eme Culte</h2>
-                                        <p style={{fontFamily: "Marcellus" }} className="java sessionContentFontSize centerText">14:00 - 15:30</p>
+                                        <h2 style={{fontFamily: "Marcellus" }} className="python sessionContentFontSize centerText">2eme Culte</h2>
+                                        <p style={{fontFamily: "Marcellus" }} className="python sessionContentFontSize centerText">14:00 - 15:30</p>
                                     </div>
                                 </div>
                                 <div className="face face2">
