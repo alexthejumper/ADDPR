@@ -621,11 +621,11 @@ export default function Home() {
                     {/* Third Column - Contact Details */}
                     <div className="column details-column">
                         <div style={{ marginBottom: "40px"}}>
-                            <h2 style={{ marginBottom: "15px", fontSize: "2rem", fontFamily: "Marcellus"}}>Contact Details</h2>
+                            <h2 style={{ marginBottom: "15px", fontSize: "2rem", fontFamily: "Marcellus", color: "white"}}>Contact Details</h2>
                             <br/>
-                            <p><strong style={{ fontFamily: "Marcellus" }}>Address:</strong> Allee Tamarin, Camp Benoit, Petite Riviere</p>
+                            <p><strong style={{ fontFamily: "Marcellus", color: "white" }}>Address:</strong> Allee Tamarin, Camp Benoit, Petite Riviere</p>
                             <br/>
-                            <p><strong style={{ fontFamily: "Marcellus" }}>Phone:</strong> (+230) 5 929 1029</p>
+                            <p><strong style={{ fontFamily: "Marcellus", color: "white" }}>Phone:</strong> (+230) 5 929 1029</p>
                             <br/>
                             <p className="contact-container">
                                 <strong className="mail"></strong>
@@ -635,7 +635,7 @@ export default function Home() {
 
                         <div style={{ display: "block"}} className="button-container">
 
-                            <h2 style={{ marginBottom: "15", fontSize: "2rem", fontFamily: "Marcellus"}}>Suivez Nous</h2>
+                            <h2 style={{ marginBottom: "15", fontSize: "2rem", fontFamily: "Marcellus", color: "white"}}>Suivez Nous</h2>
 
                             <br/>
 
