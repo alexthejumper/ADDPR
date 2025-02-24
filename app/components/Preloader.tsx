@@ -6,7 +6,10 @@ import "../Preloader.css";
 const Preloader = () => {
     return (
         <div className="preloader">
-            <div className="loader"></div>
+            <video autoPlay muted playsInline>
+                <source src="/videos/fish.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+            </video>
         </div>
     );
 };
