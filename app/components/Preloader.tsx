@@ -3,6 +3,7 @@
 import React, {useEffect} from "react";
 import "../Preloader.css";
 import "../orangeLoader.scss";
+import "../textHoveringEffect.css";
 
 const Preloader = () => {
 
@@ -53,6 +54,14 @@ const Preloader = () => {
                     <div className="arrow up outer outer-8"></div>
                     <div className="arrow down outer outer-9"></div>
                 </div>
+            </div>
+
+            <div className="divHoverText">
+                <p>J</p>
+                <p>e</p>
+                <p>s</p>
+                <p>u</p>
+                <p>s</p>
             </div>
         </div>
     );

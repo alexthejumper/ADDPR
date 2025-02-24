@@ -27,7 +27,7 @@
     }
 }
 
-.dank-ass-loader {
+.dank-ass-loader, .divHoverText {
     display: none !important;
 }
 
@@ -36,7 +36,7 @@
         display: none !important;
     }
 
-    .dank-ass-loader {
+    .dank-ass-loader, .divHoverText {
         display: flex !important;
     }
 }

@@ -1,0 +1,84 @@
+:root {
+    --effect: hover 1s linear infinite;
+}
+/**{
+    margin:0;
+}*/
+
+/*body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    align-items: center;
+    justify-content: center;
+}*/
+
+.divHoverText {
+    text-align: center;
+}
+
+.divHoverText p {
+    display: inline-block;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 4em;
+    font-family: arial;
+    font-weight: 600;
+    transform: scale(.5);
+    color: #121212;
+    -webkit-text-stroke: 2px rgb(128, 128, 128);
+}
+
+.divHoverText p:nth-child(1) {
+    animation: var(--effect);
+}
+
+.divHoverText p:nth-child(2) {
+    animation: var(--effect) .125s;
+}
+
+.divHoverText p:nth-child(3) {
+    animation: var(--effect) .25s;
+}
+
+.divHoverText p:nth-child(4) {
+    animation: var(--effect) .375s;
+}
+
+.divHoverText p:nth-child(5) {
+    animation: var(--effect) .5s;
+}
+
+/*
+.divHoverText p:nth-child(6) {
+    animation: var(--effect) .675s;
+}
+
+.divHoverText p:nth-child(7) {
+    animation: var(--effect) .75s;
+}
+*/
+
+@keyframes hover {
+    0% {
+        transform: scale(0.5);
+        color: cyan; /* Cyan text */
+        -webkit-text-stroke: 2px blue; /* Blue outline */
+        filter: drop-shadow(0 0 5px cyan);
+    }
+
+    20% {
+        transform: scale(1);
+        color: blue; /* Blue text */
+        -webkit-text-stroke: 3px cyan; /* Cyan outline */
+        filter: drop-shadow(0 0 5px blue);
+    }
+
+    50% {
+        transform: scale(0.5);
+        color: cyan;
+        -webkit-text-stroke: 2px blue;
+        filter: drop-shadow(0 0 5px cyan);
+    }
+}
