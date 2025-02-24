@@ -120,8 +120,8 @@ export default function Home() {
                 className="side-carousel left-carousel zindex-3"
                 initial={{ x: "-100%", y: -50, opacity: 0.5 }}  // Start off-screen with low opacity
                 animate={{ x: 0, y: -100, opacity: 0.5 }}  // Ends with low opacity
-                whileHover={{ opacity: 1 }}  // Full opacity on hover
-                transition={{ duration: 1, ease: "easeOut", delay: 5 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 5 }} // Delay only for initial transition
+                whileHover={{ opacity: 1, transition: { duration: 1 } }} // Instant hover effect
             >
                 <Slider {...settings}>
                     <div className="carousel-item">
@@ -150,8 +150,8 @@ export default function Home() {
                 className="side-carousel right-carousel zindex-3"
                 initial={{ x: "100%", y: -50, opacity: 0.5 }}  // Start off-screen with low opacity
                 animate={{ x: 0, y: -100, opacity: 0.5 }}  // Ends with low opacity
-                whileHover={{ opacity: 1 }}  // Full opacity on hover
                 transition={{ duration: 1, ease: "easeOut", delay: 5 }}
+                whileHover={{ opacity: 1, transition: { duration: 1 } }} // Instant hover effect
             >
                 <Slider {...settings}>
                     <div className="carousel-item">
