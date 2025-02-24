@@ -177,7 +177,7 @@ body {
   animation-duration: 2s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
-  font-size: clamp(4rem, 5vw, 10rem); /* Responsive text size */
+  font-size: clamp(3rem, 5vw, 10rem); /* Responsive text size */
 }
 
 .text-part.left {
