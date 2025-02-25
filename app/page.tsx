@@ -26,6 +26,8 @@ import zoomUpAnimation from "@/app/lib/zoomUpAnimation";
 import fadeInMap from "@/app/lib/fadeInMap";
 import formFadeSlideUp from "@/app/lib/formFadeSlideUp";
 import bouncyButtonAnimation from "@/app/lib/bouncyButtonAnimation";
+import useZoomUpTopAnimation from "@/app/lib/zoomUpTopAnimation";
+import bouncyButtonTopAnimation from "@/app/lib/bouncyButtonTopAnimation";
 
 export default function Home() {
     const settings = {
@@ -142,9 +144,11 @@ export default function Home() {
     cardScrollAnimation();
     fadeSlideUpAnimation();
     zoomUpAnimation();
+    useZoomUpTopAnimation();
     fadeInMap();
     formFadeSlideUp();
     bouncyButtonAnimation();
+    bouncyButtonTopAnimation();
 
     return (
         <div className="blueBackgroundColor">
@@ -233,7 +237,7 @@ export default function Home() {
                         </div>
 
 
-                        <h2 className="zoom-up subtitle colorWhite">
+                        <h2 className="zoom-up-top subtitle colorWhite">
                             {/* eslint-disable-next-line react/no-unescaped-entities */}
                             Rejoignez-nous dans l'adoration et la communion chaque dimanche.
                         </h2>

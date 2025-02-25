@@ -8,7 +8,7 @@ const HomeButtonContact = () => {
     return (
         <div style={{ marginTop: "70px !important"}} className="voltage-button-body">
             <Link href="#contact">
-                <div className="bounce-in voltage-button">
+                <div className="bounce-in-top voltage-button">
                     <button>Contactez Nous</button>
 
                     {/* SVG Party */}
