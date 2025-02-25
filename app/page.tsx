@@ -131,12 +131,13 @@ export default function Home() {
     // Define animation variants
     const fadeInVariant = {
         hidden: { opacity: 0, y: 20 },
-        visible: (i) => ({
+        visible: (i: number) => ({
             opacity: 1,
             y: 0,
             transition: { duration: 0.4, delay: i * 0.6, ease: "easeOut" },
         }),
     };
+
 
     cardScrollAnimation();
     fadeSlideUpAnimation();
