@@ -8,8 +8,16 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fullcalendar/bootstrap": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/interaction": "^6.1.15",
+    "@fullcalendar/list": "^6.1.15",
+    "@fullcalendar/react": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
     "@react-google-maps/api": "^2.20.6",
+    "bootstrap": "^5.3.3",
     "bulma": "^1.0.3",
+    "firebase": "^11.3.1",
     "framer-motion": "^12.4.7",
     "gsap": "^3.12.7",
     "leaflet": "^1.9.4",

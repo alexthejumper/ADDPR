@@ -1,0 +1,47 @@
+/* Neon Theme */
+:root {
+    --calendar-bg: #0a0a0a;
+    --text-color: #ffffff;
+}
+
+/* FullCalendar Container */
+.calendar-container {
+    background: var(--calendar-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00ccff;
+}
+
+/* Header Styling */
+.fc-toolbar {
+    color: var(--text-color);
+    text-shadow: 0 0 5px #00ccff;
+}
+
+/* Buttons */
+.fc-button {
+    background: #00ccff !important;
+    border: 2px solid #00ccff !important;
+    color: black !important;
+    text-shadow: 0 0 5px #00ccff;
+    box-shadow: 0 0 10px #00ccff;
+}
+
+.fc-button:hover {
+    background: #00ff99 !important;
+    box-shadow: 0 0 15px #00ff99;
+}
+
+/* Day Cells */
+.fc-daygrid-day {
+    border: 1px solid #00ccff;
+    color: var(--text-color);
+}
+
+/* Today Highlight */
+.fc-day-today {
+    background: rgba(0, 255, 153, 0.3) !important;
+    border: 2px solid #00ff99;
+    box-shadow: 0 0 10px #00ff99;
+}
+
