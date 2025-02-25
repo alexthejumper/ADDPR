@@ -10,7 +10,7 @@
   "dependencies": {
     "@react-google-maps/api": "^2.20.6",
     "bulma": "^1.0.3",
-    "framer-motion": "^12.4.1",
+    "framer-motion": "^12.4.7",
     "gsap": "^3.12.7",
     "leaflet": "^1.9.4",
     "next": "15.1.6",

@@ -13,13 +13,19 @@ import "./formButton.css";
 import "./socialMediaIcons.scss";
 import "./floatingSuccessMessageSent.css";
 
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Image from "next/image";
 import Slider from "react-slick";
-import { motion } from "framer-motion";
+import {motion, useInView} from "framer-motion";
 import HomeButtonContact from "@/app/components/HomeButtonContact";
 import {setupVideoVisibility} from "@/app/lib/videoBackroundStarter";
 import {setupVideoVisibilityInCarousel} from "@/app/lib/carouselVideoBackgroundStarter";
+import cardScrollAnimation from "@/app/lib/cardScrollAnimation";
+import fadeSlideUpAnimation from "@/app/lib/fadeSlideUpAnimation";
+import zoomUpAnimation from "@/app/lib/zoomUpAnimation";
+import fadeInMap from "@/app/lib/fadeInMap";
+import formFadeSlideUp from "@/app/lib/formFadeSlideUp";
+import bouncyButtonAnimation from "@/app/lib/bouncyButtonAnimation";
 
 export default function Home() {
     const settings = {
@@ -113,6 +119,32 @@ export default function Home() {
     }, []);
 
 
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+
+    const buttonRef = useRef(null);
+    const isInView2 = useInView(buttonRef, { once: true, margin: "-100px" });
+
+    const headingRef = useRef(null);
+    const isInView3 = useInView(headingRef, { once: true, margin: "-100px" });
+
+    // Define animation variants
+    const fadeInVariant = {
+        hidden: { opacity: 0, y: 20 },
+        visible: (i) => ({
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.4, delay: i * 0.6, ease: "easeOut" },
+        }),
+    };
+
+    cardScrollAnimation();
+    fadeSlideUpAnimation();
+    zoomUpAnimation();
+    fadeInMap();
+    formFadeSlideUp();
+    bouncyButtonAnimation();
+
     return (
         <div className="blueBackgroundColor">
             {/* Left Carousel */}
@@ -200,7 +232,7 @@ export default function Home() {
                         </div>
 
 
-                        <h2 className="subtitle colorWhite">
+                        <h2 className="zoom-up subtitle colorWhite">
                             {/* eslint-disable-next-line react/no-unescaped-entities */}
                             Rejoignez-nous dans l'adoration et la communion chaque dimanche.
                         </h2>
@@ -216,31 +248,63 @@ export default function Home() {
                         Votre navigateur ne supporte pas la vidéo.
                     </video>
                     <div className="video-overlay">
-                        <div className="oswald-font responsive-text servirEnSonNomMarginBottom">Servir en Son Nom</div>
+                        <motion.div
+                            ref={ref}
+                            className="autoShow oswald-font responsive-text servirEnSonNomMarginBottom"
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : {}}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                        >
+                            Servir en Son Nom
+                        </motion.div>
 
-                        <div className="responsive-text-for-video-content quicksand-unique">
-                            <p>En tant que disciples du Christ, nous sommes appelés à être ses mains et ses pieds sur Terre, à partager son amour et à apporter la lumière dans ce monde.</p>
+                        <div ref={ref} className="responsive-text-for-video-content quicksand-unique">
+                            {[
+                                "En tant que disciples du Christ, nous sommes appelés à être ses mains et ses pieds sur Terre, à partager son amour et à apporter la lumière dans ce monde.",
+                                "Servir est un honneur et un témoignage de notre foi.",
+                                "À travers la prière, l'entraide, la louange et l'accompagnement des plus démunis, chaque acte de service reflète l'amour de Dieu.",
+                                "",
+                                "« Car même le Fils de l’homme est venu, non pour être servi, mais pour servir et donner sa vie comme la rançon de plusieurs. »",
+                                "(Marc 10:45)",
+                                "",
+                                "Rejoignez-nous pour bâtir un monde rempli de l’amour de Christ.",
+                                "✨ Servons en Son Nom, pour Sa gloire !",
+                            ].map((text, i) =>
+                                text ? (
+                                    <motion.p
+                                        key={i}
+                                        className={i === 4 || i === 5 ? "fontBolder" : ""}
+                                        initial="hidden"
+                                        animate={isInView ? "visible" : "hidden"}
+                                        variants={fadeInVariant}
+                                        custom={i}
+                                    >
+                                        {text}
+                                    </motion.p>
+                                ) : (
+                                    <br key={i} />
+                                )
+                            )}
 
-                            <p>Servir est un honneur et un témoignage de notre foi.</p>
-
-                            <p>À travers la prière, l'entraide, la louange et l'accompagnement des plus démunis, chaque acte de service reflète l'amour de Dieu.</p>
-
-                            <br/>
-
-                            <p className="fontBolder">"Car même le Fils de l’homme est venu, non pour être servi, mais pour servir et donner sa vie comme la rançon de plusieurs."</p>
-
-                            <p className="fontBolder">(Marc 10:45)</p>
-
-                            <br/>
-
-                            <p>Rejoignez-nous pour bâtir un monde rempli de l’amour de Christ.</p>
-
-                            <p>✨ Servons en Son Nom, pour Sa gloire !</p>
-
-                            <br/>
-
-                            <button className="button-57" role="button"><span className="text">En savoir plus sur nous</span><span className="arrowKnowMore whiteArrow"></span></button>
-
+                            <motion.button
+                                ref={buttonRef}
+                                className="button-57 marginTop"
+                                role="button"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={isInView2 ? { opacity: 1, scale: 1 } : {}}
+                                transition={{
+                                    duration: 0.6,
+                                    ease: "easeOut",
+                                    delay: 4,
+                                    repeat: 0,
+                                    type: "spring",
+                                    stiffness: 100,
+                                    damping: 10,
+                                }}
+                            >
+                                <span className="text">En savoir plus sur nous</span>
+                                <span className="arrowKnowMore whiteArrow"></span>
+                            </motion.button>
                         </div>
                     </div>
                 </div>
@@ -254,7 +318,15 @@ export default function Home() {
 
                         {/* Left Column */}
                         <div className="column is-6 has-text-centered">
-                            <h1 className="sHtext protest-revolution-regular backgroundNone title2 has-text-white">Service Hours</h1>
+                            <motion.h1
+                                ref={headingRef}
+                                className="sHtext protest-revolution-regular backgroundNone title2 has-text-white"
+                                initial={{ opacity: 0, x: -100 }}  // Starts off-screen to the left
+                                animate={isInView3 ? { opacity: 1, x: 0 } : {}}
+                                transition={{ duration: 0.8, ease: "easeOut" }}
+                            >
+                                Service Hours
+                            </motion.h1>
                         </div>
 
                         {/* Right Column */}
@@ -279,97 +351,9 @@ export default function Home() {
 
                     </div>
 
-                    {/*<div className="heightAuto noPadding card glassmorphism neonBorder">
-                        <div className="card-content">
-                            <ul className="serviceHoursList">
-                                <li><strong>Lundi:&nbsp;</strong> <span className="roboto-condensed-unique fontSizeSpan redSpan">FERME</span></li>
-                                <br/>
-                                <li><strong>Mardi:&nbsp;</strong>
-                                    <div className="marginLeft">
-                                        <p className="roboto-condensed-unique blackSpan fontSizeSpan">- Reunion d'Edification:&nbsp;17:00 - 18:00</p>
-                                    </div>
-                                </li>
-                                <br/>
-                                <li><strong>Mercredi:&nbsp;</strong>
-                                    <div className="marginLeft">
-                                        <p className="roboto-condensed-unique blackSpan fontSizeSpan">- Reunion d'Intercession:&nbsp;10:00 - Midi</p>
-                                    </div>
-                                </li>
-                                <br/>
-                                <li><strong>Jeudi:&nbsp;</strong>
-                                    <div className="marginLeft">
-                                        <p className="roboto-condensed-unique blackSpan fontSizeSpan">- Reunion de Priere:&nbsp;17:00 - 18:00</p>
-                                    </div>
-                                </li>
-                                <br/>
-                                <li><strong>Vendredi:&nbsp;</strong> <span className="roboto-condensed-unique fontSizeSpan redSpan">FERME</span></li>
-                                <br/>
-                                <li><strong>Samedi:&nbsp;</strong> <span className="roboto-condensed-unique fontSizeSpan redSpan">FERME</span></li>
-                                <br/>
-                                <li><strong>Dimanche:&nbsp;</strong>
-                                    <div className="marginLeft">
-                                        <p className="roboto-condensed-unique blackSpan fontSizeSpan">- Reunion de Priere:&nbsp;05:00 - 06:00</p>
-                                        <p className="roboto-condensed-unique blackSpan fontSizeSpan">- 1er Culte:&nbsp;08:00 - 10:00</p>
-                                        <p className="roboto-condensed-unique blackSpan fontSizeSpan">- 2eme Culte:&nbsp;14:00 - 15:30</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>*/}
+
 
                     <div className="service-hours-container">
-{/*                        <div className="columns is-multiline is-variable is-1">
-                             Monday
-                            <div className="column is-1 has-text-centered">
-                                <strong>Lundi</strong>
-                                <p className="redSpan">FERME</p>
-                            </div>
-
-                             Tuesday
-                            <div className="column is-1 has-text-centered">
-                                <strong>Mardi</strong>
-                                <p>- Reunion d'Edification</p>
-                                <p>17:00 - 18:00</p>
-                            </div>
-
-                             Wednesday
-                            <div className="column is-1 has-text-centered">
-                                <strong>Mercredi</strong>
-                                <p>- Reunion d'Intercession</p>
-                                <p>10:00 - Midi</p>
-                            </div>
-
-                             Thursday
-                            <div className="column is-1 has-text-centered">
-                                <strong>Jeudi</strong>
-                                <p>- Reunion de Priere</p>
-                                <p>17:00 - 18:00</p>
-                            </div>
-
-                             Friday
-                            <div className="column is-1 has-text-centered">
-                                <strong>Vendredi</strong>
-                                <p className="redSpan">FERME</p>
-                            </div>
-
-                             Saturday
-                            <div className="column is-1 has-text-centered">
-                                <strong>Samedi</strong>
-                                <p className="redSpan">FERME</p>
-                            </div>
-
-                             Sunday
-                            <div className="column is-1 has-text-centered">
-                                <strong>Dimanche</strong>
-                                <p>- Reunion de Priere</p>
-                                <p>05:00 - 06:00</p>
-                                <p>- 1er Culte</p>
-                                <p>08:00 - 10:00</p>
-                                <p>- 2eme Culte</p>
-                                <p>14:00 - 15:30</p>
-                            </div>
-                        </div>*/}
-
                         <div className="cardContainer">
                             <div className="cardcard neonText redBackgroundCard">
                                 <div className="face face1">
@@ -485,8 +469,8 @@ export default function Home() {
 
             <section id="location" className="section3">
                 {/* Header */}
-                <div style={{ margin: "0 20px "}} className="is-flex is-justify-content-center">
-                    <h1 className="roboto-condensed-unique fontBlack headerFontSize" style={{ textAlign: "center"}}>
+                <div style={{ marginLeft: "20px", marginRight: "20px", marginTop: "-30px !important"}} className="is-flex is-justify-content-center">
+                    <h1 className="roboto-condensed-unique fontBlack headerFontSize fade-slide-up" style={{ textAlign: "center"}}>
                         Find Your Way to Us
                     </h1>
                 </div>
@@ -506,25 +490,26 @@ export default function Home() {
                 }}>
                     {/* Left Side: Text + Image */}
                     <div className="locationText" style={{ maxWidth: "500px", textAlign: "left", color: "black" }}>
-                        <p className="quicksand-unique" style={{ fontSize: "18px", lineHeight: "1.6" }}>
+                        <p className="quicksand-unique zoom-up" style={{ fontSize: "18px", lineHeight: "1.6" }}>
                             Notre église est stratégiquement située à Petite-Rivière, offrant un espace chaleureux et accueillant pour le culte et la vie communautaire.
                             Que vous nous rendiez visite pour la première fois ou que vous reveniez, nous serons ravis de vous accueillir !
                         </p>
 
-                        <p className="quicksand-unique" style={{ fontSize: "18px", lineHeight: "1.6" }}>
+                        <p className="quicksand-unique zoom-up" style={{ fontSize: "18px", lineHeight: "1.6" }}>
                             Facile à trouver, notre église dispose d’un arrêt de bus juste en face, rendant l’accès en transport publique encore plus pratique.
                             Utilisez le map pour nous localiser.
                         </p>
 
                         <br/>
 
-                        <p style={{ fontSize: "18px", fontWeight: "bold" }}>
+                        <p className="zoom-up" style={{ fontSize: "18px", fontWeight: "bold" }}>
                             📍 Addresse: Allee Tamarin, Camp Benoit <br />
                         </p>
 
                         <br/>
 
                         <Image
+                            className="zoom-up"
                             src="/images/eglise.png"
                             alt="Church building"
                             width={500}
@@ -534,7 +519,7 @@ export default function Home() {
                     </div>
 
                     {/* Right Side: Map */}
-                    <div style={{ width: "100%", maxWidth: "870px", aspectRatio: "1.2", position: "relative" }}>
+                    <div className="fade-in-map" style={{ width: "100%", maxWidth: "870px", aspectRatio: "1.2", position: "relative" }}>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.798219623378!2d57.460488175007484!3d-20.184125281262244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217c51dc8440a141%3A0xf9deecb571319cc7!2sAssembl%C3%A9e%20de%20Dieu%20Petite%20Riviere!5e0!3m2!1sen!2smu!4v1739937414677!5m2!1sen!2smu"
                             style={{
@@ -562,7 +547,7 @@ export default function Home() {
             <section id="contact" className="section4">
                 <div className="columns-container">
                     {/* First Column - Video */}
-                    <video id="video-background-2" className="column video-column" autoPlay loop muted playsInline>
+                    <video id="video-background-2" className="zoom-up column video-column" autoPlay loop muted playsInline>
                         {/*<source src="/videos/render.webm" type="video/webm" />*/}
                         <source src="/videos/render.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
@@ -573,8 +558,8 @@ export default function Home() {
                         {/*<h2>Contact Us</h2>*/}
 
                         <form className="form" onSubmit={handleSubmit}>
-                            <h2 style={{ color: 'white', fontSize: '2rem', fontFamily: "Marcellus" }}>Contact Us</h2>
-                            <p style={{ color: 'white', marginBottom: '20px', fontFamily: "Marcellus" }} className="remainLeft">
+                            <h2 className="zoom-up" style={{ color: 'white', fontSize: '2rem', fontFamily: "Marcellus" }}>Contact Us</h2>
+                            <p style={{ color: 'white', marginBottom: '20px', fontFamily: "Marcellus" }} className="form-fade-slide-up remainLeft">
                                 Name:
                                 <input
                                     type="text"
@@ -584,7 +569,7 @@ export default function Home() {
                                     required
                                 />
                             </p>
-                            <p style={{ color: 'white', marginBottom: '20px', fontFamily: "Marcellus" }} className="remainLeft">
+                            <p style={{ color: 'white', marginBottom: '20px', fontFamily: "Marcellus" }} className="form-fade-slide-up remainLeft">
                                 Email:
                                 <input
                                     type="email"
@@ -594,7 +579,7 @@ export default function Home() {
                                     required
                                 />
                             </p>
-                            <p style={{ color: 'white', fontFamily: "Marcellus" }} className="remainLeft">
+                            <p style={{ color: 'white', fontFamily: "Marcellus" }} className="form-fade-slide-up remainLeft">
                                 Message:
                                 <textarea
                                     value={message}
@@ -603,7 +588,7 @@ export default function Home() {
                                     required
                                 ></textarea>
                             </p>
-                            <button type="submit" className="formButton">Send Message</button>
+                            <button type="submit" className="bounce-in formButton">Send Message</button>
 
                             {/*{status && <p>{status}</p>}*/}
                         </form>
@@ -628,13 +613,13 @@ export default function Home() {
                     {/* Third Column - Contact Details */}
                     <div className="column details-column">
                         <div style={{ marginBottom: "40px"}}>
-                            <h2 style={{ marginBottom: "15px", fontSize: "2rem", fontFamily: "Marcellus", color: "white"}}>Contact Details</h2>
+                            <h2 className="zoom-up" style={{ marginBottom: "15px", fontSize: "2rem", fontFamily: "Marcellus", color: "white"}}>Contact Details</h2>
                             <br/>
-                            <p className="contact-container" style={{ color: "white" }}><strong className="address"></strong> Allee Tamarin, Camp Benoit, Petite Riviere</p>
+                            <p className="form-fade-slide-up contact-container" style={{ color: "white" }}><strong className="address"></strong> Allee Tamarin, Camp Benoit, Petite Riviere</p>
                             <br/>
-                            <p className="contact-container" style={{ color: "white" }}><strong className="phone"></strong> (+230) 5 929 1029</p>
+                            <p className="form-fade-slide-up contact-container" style={{ color: "white" }}><strong className="phone"></strong> (+230) 5 929 1029</p>
                             <br/>
-                            <p className="contact-container">
+                            <p className="contact-container form-fade-slide-up">
                                 <strong className="mail"></strong>
                                 <a href="mailto:assembleepetiteriviere22@gmail.com">assembleepetiteriviere22@gmail.com</a>
                             </p>
@@ -642,11 +627,11 @@ export default function Home() {
 
                         <div style={{ display: "block"}} className="button-container">
 
-                            <h2 style={{ marginBottom: "15", fontSize: "2rem", fontFamily: "Marcellus", color: "white"}}>Suivez Nous</h2>
+                            <h2 className="zoom-up" style={{ marginBottom: "15", fontSize: "2rem", fontFamily: "Marcellus", color: "white"}}>Suivez Nous</h2>
 
                             <br/>
 
-                            <div className="facebook-icon">
+                            <div className="facebook-icon form-fade-slide-up">
                                 <div className="glass-btn blue-btn">
                                     <a href="https://www.facebook.com/profile.php?id=61572844235340" target="_blank" rel="noopener noreferrer">
                                         <Image

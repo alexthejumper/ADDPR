@@ -61,9 +61,9 @@ export default function Navbar() {
                             <Link style={{ fontFamily: "Monda"}} href="#contact" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                 Contact
                             </Link>
-                            <Link style={{ fontFamily: "Monda"}} href="#about" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                            {/*<Link style={{ fontFamily: "Monda"}} href="#about" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                 About Us
-                            </Link>
+                            </Link>*/}
                         </div>
                     </div>
                 </div>
@@ -106,9 +106,9 @@ export default function Navbar() {
                                 <Link style={{ fontFamily: "Monda"}} href="#contact" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                     Contact
                                 </Link>
-                                <Link style={{ fontFamily: "Monda"}} href="#about" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                                {/*<Link style={{ fontFamily: "Monda"}} href="#about" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                     About Us
-                                </Link>
+                                </Link>*/}
                             </div>
                         </div>
                     </div>
