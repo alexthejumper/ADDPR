@@ -4,6 +4,15 @@
     --text-color: #ffffff;
 }
 
+body {
+    background-color: darkblue !important;
+}
+
+.calendar-body {
+    /*border: 2px solid yellow;*/
+    padding: 30px 0;
+}
+
 /* FullCalendar Container */
 .calendar-container {
     background: var(--calendar-bg);
@@ -44,4 +53,61 @@
     border: 2px solid #00ff99;
     box-shadow: 0 0 10px #00ff99;
 }
+
+/*
+.fc-timegrid-slot-label-cushion {
+    color: white !important;
+}*/
+
+/*.fc .fc-timegrid-slot-label-cushion {
+    color: white;
+}*/
+
+.fc-v-event, .fc-h-event {
+    border: none !important;
+}
+
+.fc-event-title, .fc-event-time {
+    color: white !important;
+}
+
+.fc-daygrid-event-dot {
+    color: #C68FE6 !important;
+}
+
+/* Space between events */
+.fc-daygrid-event {
+    margin-bottom: 20px !important; /* Adjust spacing between stacked events */
+    padding: 5px;
+}
+
+.fc .fc-timegrid-slot-label-cushion {
+    color: white !important;
+}
+
+.fc .fc-timegrid-axis-cushion {
+    color: wheat !important;
+}
+
+.fc .fc-list-event-title a, .fc-list-event-time {
+    color: white !important;
+}
+
+.fc-list-table tbody tr.fc-event:hover td {
+    background-color: red !important;
+}
+
+.fc-daygrid-event {
+    transition: filter 0.2s ease;
+}
+
+.fc-daygrid-event:hover {
+    filter: brightness(75%);
+}
+
+
+
+
+
+
 
