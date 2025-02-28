@@ -20,9 +20,10 @@ const ChurchCalendar = () => {
     const [modalEvent, setModalEvent] = useState(null);
     const [isClosing, setIsClosing] = useState(false);
 
-    const formatDate = (date) => {
+    const formatDate = (date: string | Date): string => {
         return new Date(date).toLocaleString(); // Formats the date in a human-readable form
     };
+
 
     const getWeeklyEventDates = (monthsAhead = 12) => {
         const now = new Date();
