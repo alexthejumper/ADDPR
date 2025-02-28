@@ -1,6 +1,6 @@
 "use client";
 
-import "../HomeContactButtonStyle.scss";
+import "../scss/HomeContactButtonStyle.scss";
 import Link from "next/link";
 import React from "react";
 

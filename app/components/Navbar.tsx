@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import "../fonts.css";
+import "../css/fonts.css";
 
 export default function Navbar() {
     const [showStickyNav, setShowStickyNav] = useState(false);

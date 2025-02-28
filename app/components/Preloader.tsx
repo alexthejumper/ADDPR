@@ -1,9 +1,9 @@
 "use client";
 
 import React, {useEffect} from "react";
-import "../Preloader.css";
-import "../orangeLoader.scss";
-import "../textHoveringEffect.css";
+import "../css/Preloader.css";
+import "../scss/orangeLoader.scss";
+import "../css/textHoveringEffect.css";
 
 const Preloader = () => {
 

@@ -8,7 +8,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid"; // Week & Day views
 import listPlugin from "@fullcalendar/list"; // List view
 import interactionPlugin from "@fullcalendar/interaction";
-import "../calendar.css";
+import "../css/calendar.css";
 
 import {weeklyEvents} from "@/app/weeklyData/default/defaultEvents";
 import {eventExceptions} from "@/app/weeklyData/exceptions/exceptionEvents";
