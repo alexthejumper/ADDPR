@@ -9,12 +9,20 @@ import timeGridPlugin from "@fullcalendar/timegrid"; // Week & Day views
 import listPlugin from "@fullcalendar/list"; // List view
 import interactionPlugin from "@fullcalendar/interaction";
 import "../css/calendar.css";
+import "../modalEventButtonCSS.css";
 
 import {weeklyEvents} from "@/app/weeklyData/default/defaultEvents";
 import {eventExceptions} from "@/app/weeklyData/exceptions/exceptionEvents";
 
 const ChurchCalendar = () => {
     const [events, setEvents] = useState([]);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalEvent, setModalEvent] = useState(null);
+    const [isClosing, setIsClosing] = useState(false);
+
+    const formatDate = (date) => {
+        return new Date(date).toLocaleString(); // Formats the date in a human-readable form
+    };
 
     const getWeeklyEventDates = (monthsAhead = 12) => {
         const now = new Date();
@@ -87,11 +95,11 @@ const ChurchCalendar = () => {
                             allDay: ex.allDay
                         });
 
-                        // Mark this date as processed so we don't add duplicates
+                        // Mark this date as processed, so we don't add duplicates
                         processedDates.add(eventDate);
                     });
                 } else {
-                    // If no exceptions exist and it's the first occurrence, add the regular event
+                    // If no exceptions exist, and it's the first occurrence, add the regular event
                         eventsWithDates.push({
                             title: event.title,
                             description: event.description,
@@ -100,6 +108,8 @@ const ChurchCalendar = () => {
                             allDay: event.allDay
                         });
                 }
+
+                /*console.log("description: " + event.description);*/
             }
         });
 
@@ -171,6 +181,52 @@ const ChurchCalendar = () => {
         info.el.style.textShadow = "0 0 5px black";
     };
 
+    const openModal = (event) => {
+        setModalEvent(event);
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsClosing(true);
+        setTimeout(() => {
+            setModalOpen(false);  // This will hide the modal after the animation is complete
+            setIsClosing(false);
+            setModalEvent(null);
+        }, 600); // Match this time to the animation duration
+
+        console.log("modal closed: ", modalOpen);
+    };
+
+    const eventClick = (info) => {
+        /*console.log("opening");
+        console.log("event: ", info);
+        console.log("info event: ", info.event);
+        console.log("desc: ", info.event._def.extendedProps.description);*/
+        openModal(info.event);
+    };
+
+
+/*    useEffect(() => {
+
+            const timer = setTimeout(() => {
+                console.log("yess");
+                console.log(modalEvent);
+
+                if (Array.isArray(modalEvent)) {
+                    modalEvent.forEach(event => {
+                        console.log(event.description);
+                    });
+                }
+            }, 3000); // 3 seconds delay
+
+            // Cleanup function to clear timeout if modalEvent changes before 3 seconds
+            return () => clearTimeout(timer);
+
+    }, [modalEvent]);*/
+
+
+
+
     return (
         <div className="calendar-body">
             <div style={{ padding: "20px !important" }} className="calendar-container container">
@@ -187,7 +243,8 @@ const ChurchCalendar = () => {
                         }}
                         events={events}
                         eventDidMount={eventDidMount}
-                        eventClick={(info) => alert(`Event: ${info.event.title}`)}
+                        /*eventClick={(info) => alert(`Event: ${info.event.title}`)}*/
+                        eventClick={eventClick}
                         eventTimeFormat={{
                             hour: "2-digit",
                             minute: "2-digit",
@@ -199,6 +256,32 @@ const ChurchCalendar = () => {
                     />
                 </div>
             </div>
+
+            {/* Modal */}
+            {modalOpen && (
+                <div className={`modal ${isClosing ? 'closing' : ''}`}>
+                    <div className={`modal-content-container ${isClosing ? 'closing-content' : ''}`}>
+                        <div className="modalTitle">
+                            <h2 style={{
+                                textAlign: "center",
+                                fontSize: "clamp(1.5rem, 2.5vw, 3rem)",
+                                color: "white"
+                            }}  className="marcellusSC">{modalEvent.title}</h2>
+                        </div>
+                        <div className="modal-content">
+                            <p>{modalEvent._def.extendedProps.description}</p>
+                            <div style={{ display: "flex", justifyContent: "space-between"}}>
+                                <p>Start: {formatDate(modalEvent.start)}</p>
+                                <p>End: {formatDate(modalEvent.end)}</p>
+                            </div>
+                            <div style={{ textAlign: "center"}}>
+                                <button onClick={closeModal}>Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
