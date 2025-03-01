@@ -91,7 +91,7 @@ const ChurchCalendar = () => {
                 }
 
                 // Check if exceptions exist for this date
-                const exceptionsForDate = eventExceptions.filter((e: EventExceptionType) => e.date === eventDate);
+                const exceptionsForDate = eventExceptions.filter((e: typeof EventExceptionType[0]) => e.date === eventDate);
 
                 if (exceptionsForDate.length > 0) {
                     exceptionsForDate.forEach((ex) => {
