@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .button-container {
   display: flex;
   align-items: center;
@@ -82,7 +84,7 @@
   }*/
 
   &:hover {
-    background-color: darken(#fafafa, 2%);
+    background-color: color.adjust(#fafafa, $lightness: -2%);
     transform: translateY(-5px);
     transition: all 0.3s;
   }

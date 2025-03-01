@@ -26,9 +26,18 @@ const ChurchCalendar = () => {
 
 
     const getWeeklyEventDates = (monthsAhead = 12) => {
+        type EventWithDate = {
+            title: string;
+            description: string;
+            start: string; // ISO string format (Date.toISOString())
+            end: string;   // ISO string format
+            allDay: boolean;
+        };
+
+
         const now = new Date();
         const currentDayOfWeek = now.getDay(); // 0 (Sunday) to 6 (Saturday)
-        const eventsWithDates = [];
+        const eventsWithDates: EventWithDate[] = [];
 
         const processedDates = new Set(); // To track dates where exception events were added
         const dateCount = {}; // To count occurrences of each date
