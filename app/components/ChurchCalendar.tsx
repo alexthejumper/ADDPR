@@ -13,6 +13,7 @@ import "../modalEventButtonCSS.css";
 
 import {weeklyEvents} from "@/app/weeklyData/default/defaultEvents";
 import {eventExceptions} from "@/app/weeklyData/exceptions/exceptionEvents";
+import {EventException} from "@/app/type/eventExceptions";
 
 const ChurchCalendar = () => {
     const [events, setEvents] = useState([]);
@@ -88,7 +89,7 @@ const ChurchCalendar = () => {
                 }
 
                 // Check if exceptions exist for this date
-                const exceptionsForDate = eventExceptions.filter((e) => e.date === eventDate);
+                const exceptionsForDate = eventExceptions.filter((e: EventException) => e.date === eventDate);
 
                 if (exceptionsForDate.length > 0) {
                     exceptionsForDate.forEach((ex) => {
