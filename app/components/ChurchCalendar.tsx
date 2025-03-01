@@ -54,7 +54,7 @@ const ChurchCalendar = () => {
         };
 
         weeklyEvents.forEach((event) => {
-            const targetDayOfWeek = dayOfWeekMap[event.dayOfWeek];
+            const targetDayOfWeek = dayOfWeekMap[event.dayOfWeek as keyof typeof dayOfWeekMap];
 
             // Calculate days until the next occurrence of the event
             let diffDays = targetDayOfWeek - currentDayOfWeek;
