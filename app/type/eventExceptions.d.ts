@@ -9,4 +9,4 @@ export interface EventException {
     // Include other properties if necessary
 }
 
-export const eventExceptions: EventException[];
+export const EventExceptionType: EventException[];
