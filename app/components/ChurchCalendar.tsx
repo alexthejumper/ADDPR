@@ -13,9 +13,20 @@ import "../modalEventButtonCSS.css";
 
 import {weeklyEvents} from "@/app/weeklyData/default/defaultEvents";
 import {eventExceptions} from "@/app/weeklyData/exceptions/exceptionEvents";
+import {EventExceptionType} from "@/app/type/eventExceptions";
 
 const ChurchCalendar = () => {
-    const [events, setEvents] = useState([]);
+
+    type EventWithDate = {
+        title: string;
+        description: string;
+        start: string; // ISO string format (Date.toISOString())
+        end: string;   // ISO string format
+        allDay: boolean;
+    };
+
+    const [events, setEvents] = useState<(EventWithDate | { id: string; title: any; start: string; end: string; description: any; allDay: any; })[]>([]);
+
     const [modalOpen, setModalOpen] = useState(false);
     const [modalEvent, setModalEvent] = useState(null);
     const [isClosing, setIsClosing] = useState(false);
@@ -26,14 +37,6 @@ const ChurchCalendar = () => {
 
 
     const getWeeklyEventDates = (monthsAhead = 12) => {
-        type EventWithDate = {
-            title: string;
-            description: string;
-            start: string; // ISO string format (Date.toISOString())
-            end: string;   // ISO string format
-            allDay: boolean;
-        };
-
 
         const now = new Date();
         const currentDayOfWeek = now.getDay(); // 0 (Sunday) to 6 (Saturday)
@@ -88,7 +91,7 @@ const ChurchCalendar = () => {
                 }
 
                 // Check if exceptions exist for this date
-                const exceptionsForDate = eventExceptions.filter((e) => e.date === eventDate);
+                const exceptionsForDate = eventExceptions.filter((e: EventExceptionType) => e.date === eventDate);
 
                 if (exceptionsForDate.length > 0) {
                     exceptionsForDate.forEach((ex) => {
