@@ -1,6 +1,6 @@
 // eventExceptions.js
 export const eventExceptions = [
-    /*{
+    {
         date: "2025-03-10", // Example date: March 10, 2025
         title: "Morning Prayer - Special Time",
         startTime: "10:00", // Changed time
@@ -15,7 +15,7 @@ export const eventExceptions = [
         endTime: "20:00",  // Changed time
         description: "Bible study at a different location.",
         allDay: false
-    }*/
+    }
 ];
 
 
