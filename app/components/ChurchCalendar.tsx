@@ -40,7 +40,8 @@ const ChurchCalendar = () => {
         const eventsWithDates: EventWithDate[] = [];
 
         const processedDates = new Set(); // To track dates where exception events were added
-        const dateCount = {}; // To count occurrences of each date
+        const dateCount: Record<string, number> = {}; // Allows string keys with number values
+        // To count occurrences of each date
 
         // Define day of the week mapping
         const dayOfWeekMap = {
