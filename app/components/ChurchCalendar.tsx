@@ -25,14 +25,6 @@ const ChurchCalendar = () => {
         allDay: boolean;
     };
 
-    interface EventInfo {
-        event: {
-            start: string;
-            end: string;
-        };
-    }
-
-
     const [events, setEvents] = useState<(EventWithDate | { id: string; title: any; start: string; end: string; description: any; allDay: any; })[]>([]);
 
     const [modalOpen, setModalOpen] = useState(false);
@@ -181,7 +173,7 @@ const ChurchCalendar = () => {
     }, []);
 
 
-    const eventDidMount = (info: EventInfo) => {
+    const eventDidMount = (info) => {
         const eventStart = new Date(info.event.start).getTime();
         const eventEnd = new Date(info.event.end).getTime();
         const nowTimestamp = new Date().getTime();
