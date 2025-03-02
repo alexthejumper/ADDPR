@@ -1,17 +1,17 @@
 "use client"
 
 import Link from "next/link";
-import "./ADDprHero.css";
-import "./ServiceHoursTextStyles.scss";
-import "./NeonCards.scss";
-import "./videoContainer.css";
-import "./knowMoreButton.css";
-import "./footer.css";
-import "./form.css";
-import "./transparentEffect.css";
-import "./formButton.css";
-import "./socialMediaIcons.scss";
-import "./floatingSuccessMessageSent.css";
+import "./css/ADDprHero.css";
+import "./scss/ServiceHoursTextStyles.scss";
+import "./scss/NeonCards.scss";
+import "./css/videoContainer.css";
+import "./css/knowMoreButton.css";
+import "./css/footer.css";
+import "./css/form.css";
+import "./css/transparentEffect.css";
+import "./css/formButton.css";
+import "./scss/socialMediaIcons.scss";
+import "./css/floatingSuccessMessageSent.css";
 
 import React, {useEffect, useRef, useState} from "react";
 import Image from "next/image";
