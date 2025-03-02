@@ -173,7 +173,7 @@ const ChurchCalendar = () => {
     }, []);
 
 
-    const eventDidMount = (info) => {
+    /*const eventDidMount = (info) => {
         const eventStart = new Date(info.event.start).getTime();
         const eventEnd = new Date(info.event.end).getTime();
         const nowTimestamp = new Date().getTime();
@@ -193,7 +193,7 @@ const ChurchCalendar = () => {
         info.el.style.borderRadius = "5px";
         info.el.style.fontWeight = "bold";
         info.el.style.textShadow = "0 0 5px black";
-    };
+    };*/
 
     const openModal = (event) => {
         setModalEvent(event);
@@ -220,6 +220,35 @@ const ChurchCalendar = () => {
     };
 
 
+    const getEventClassNames = (event) => {
+        console.log("e: ", event);
+        const eventStart = new Date(event.event._instance.range.start).getTime();
+        const eventEnd = new Date(event.event._instance.range.end).getTime();
+        const nowTimestamp = new Date().getTime();
+
+        console.log(new Date(eventStart).toUTCString());
+        console.log(new Date(eventEnd).toUTCString());
+        console.log(new Date(nowTimestamp).toString());
+
+        console.log("event end: ", eventEnd);
+        console.log("current time: ", nowTimestamp);
+
+        if (nowTimestamp >= eventStart && nowTimestamp <= eventEnd) {
+            console.log("green");
+            console.log("");
+            return ['neon-green'];
+        } else if (nowTimestamp < eventStart) {
+            console.log("blue");
+            console.log("");
+            return ['neon-blue'];
+        } else {
+            console.log("red");
+            console.log("");
+            return ['neon-red'];
+        }
+    };
+
+
 /*    useEffect(() => {
 
             const timer = setTimeout(() => {
@@ -238,9 +267,6 @@ const ChurchCalendar = () => {
 
     }, [modalEvent]);*/
 
-
-
-
     return (
         <div className="calendar-body">
             <div style={{ padding: "20px !important" }} className="calendar-container container">
@@ -256,7 +282,7 @@ const ChurchCalendar = () => {
                             right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek",
                         }}
                         events={events}
-                        eventDidMount={eventDidMount}
+                        /*eventDidMount={eventDidMount}*/
                         /*eventClick={(info) => alert(`Event: ${info.event.title}`)}*/
                         eventClick={eventClick}
                         eventTimeFormat={{
@@ -267,6 +293,7 @@ const ChurchCalendar = () => {
                         dayMaxEvents={true}
                         dayMaxEventRows={3}
                         moreLinkClick="popover"
+                        eventClassNames={getEventClassNames}
                     />
                 </div>
             </div>
