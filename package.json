@@ -21,7 +21,7 @@
     "framer-motion": "^12.4.7",
     "gsap": "^3.12.7",
     "leaflet": "^1.9.4",
-    "next": "15.1.6",
+    "next": "^15.1.6",
     "nodemailer": "^6.10.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
