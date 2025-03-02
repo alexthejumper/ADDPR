@@ -222,31 +222,32 @@ const ChurchCalendar = () => {
 
     const getEventClassNames = (event) => {
         console.log("e: ", event);
-        const eventStart = new Date(event.event._instance.range.start).getTime();
-        const eventEnd = new Date(event.event._instance.range.end).getTime();
-        const nowTimestamp = new Date().getTime();
+    
+        // Convert to UTC ISO format
+        const eventStart = new Date(event.event._instance.range.start);
+        eventStart.setHours(eventStart.getHours() - 4);
 
-        console.log(new Date(eventStart).toUTCString());
-        console.log(new Date(eventEnd).toUTCString());
-        console.log(new Date(nowTimestamp).toString());
+        const eventEnd = new Date(event.event._instance.range.end);
+        eventEnd.setHours(eventEnd.getHours() - 4);
+        
+        const nowTimestamp = new Date();
 
-        console.log("event end: ", eventEnd);
-        console.log("current time: ", nowTimestamp);
-
+        console.log("Event Start Timestamp: ", eventStart);
+        console.log("Event End Timestamp: ", eventEnd);
+        console.log("Current Timestamp: ", nowTimestamp);
+    
         if (nowTimestamp >= eventStart && nowTimestamp <= eventEnd) {
             console.log("green");
-            console.log("");
             return ['neon-green'];
         } else if (nowTimestamp < eventStart) {
             console.log("blue");
-            console.log("");
             return ['neon-blue'];
         } else {
             console.log("red");
-            console.log("");
             return ['neon-red'];
         }
     };
+    
 
 
 /*    useEffect(() => {
