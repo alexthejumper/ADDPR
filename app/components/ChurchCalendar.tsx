@@ -52,6 +52,10 @@ const ChurchCalendar = () => {
             return ""; // Return empty string if date is invalid
         }
 
+        // Subtract 4 hours from the date
+        validDate.setHours(validDate.getHours() - 4);
+
+        // Format the date
         return validDate.toLocaleDateString('en-GB', {
             day: 'numeric',
             month: 'long',
@@ -62,6 +66,7 @@ const ChurchCalendar = () => {
             hour12: false
         });
     };
+
 
 
 
@@ -355,7 +360,6 @@ const ChurchCalendar = () => {
                                     <span style={{ color: "red" }}>End: </span>
                                     {formatDate(modalEvent?._instance?.range.end)}
                                 </p>
-
                             </div>
                             <div style={{ textAlign: "center"}}>
                                 <button onClick={closeModal}>Close</button>
