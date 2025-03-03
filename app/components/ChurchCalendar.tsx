@@ -252,52 +252,54 @@ const ChurchCalendar = () => {
 
 
     const getEventClassNames = (event: EventContentArg) => {
-       console.log("e: ", event.event._instance.range);
+        console.log("e: ", event);
 
-        // Convert to UTC ISO format
-        const eventStart = new Date(event.event._instance.range.start);
+        // Check if _instance is not null or undefined
+        const instance = event.event._instance;
+        if (!instance || !instance.range) {
+            // Handle the case where _instance or range is null/undefined
+            return []; // or return default class, depending on your needs
+        }
+
+        // Access range safely after checking it's not null
+        const range = instance.range;
+        const eventStart = new Date(range.start);
         eventStart.setHours(eventStart.getHours() - 4);
 
-        const eventEnd = new Date(event.event._instance.range.end);
+        const eventEnd = new Date(range.end);
         eventEnd.setHours(eventEnd.getHours() - 4);
 
         const nowTimestamp = new Date();
 
-        /*console.log("Event Start Timestamp: ", eventStart);
-        console.log("Event End Timestamp: ", eventEnd);
-        console.log("Current Timestamp: ", nowTimestamp);*/
-
         if (nowTimestamp >= eventStart && nowTimestamp <= eventEnd) {
-            /*console.log("green");*/
             return ['neon-green'];
         } else if (nowTimestamp < eventStart) {
-            /*console.log("blue");*/
             return ['neon-blue'];
         } else {
-            /*console.log("red");*/
             return ['neon-red'];
         }
     };
 
 
 
-/*    useEffect(() => {
 
-            const timer = setTimeout(() => {
-                console.log("yess");
-                console.log(modalEvent);
+    /*    useEffect(() => {
 
-                if (Array.isArray(modalEvent)) {
-                    modalEvent.forEach(event => {
-                        console.log(event.description);
-                    });
-                }
-            }, 3000); // 3 seconds delay
+                const timer = setTimeout(() => {
+                    console.log("yess");
+                    console.log(modalEvent);
 
-            // Cleanup function to clear timeout if modalEvent changes before 3 seconds
-            return () => clearTimeout(timer);
+                    if (Array.isArray(modalEvent)) {
+                        modalEvent.forEach(event => {
+                            console.log(event.description);
+                        });
+                    }
+                }, 3000); // 3 seconds delay
 
-    }, [modalEvent]);*/
+                // Cleanup function to clear timeout if modalEvent changes before 3 seconds
+                return () => clearTimeout(timer);
+
+        }, [modalEvent]);*/
 
     return (
         <div className="calendar-body">
