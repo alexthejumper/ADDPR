@@ -14,7 +14,7 @@ import "../modalEventButtonCSS.css";
 import {weeklyEvents} from "@/app/weeklyData/default/defaultEvents";
 import {eventExceptions} from "@/app/weeklyData/exceptions/exceptionEvents";
 import {EventExceptionType} from "@/app/type/eventExceptions";
-import {EventClickArg} from "@fullcalendar/core";
+import {EventClickArg, EventContentArg} from "@fullcalendar/core";
 import {EventImpl} from "@fullcalendar/core/internal";
 
 const ChurchCalendar = () => {
@@ -251,22 +251,22 @@ const ChurchCalendar = () => {
     };
 
 
-    const getEventClassNames = (event) => {
-       /* console.log("e: ", event);*/
-    
+    const getEventClassNames = (event: EventContentArg) => {
+       console.log("e: ", event.event._instance.range);
+
         // Convert to UTC ISO format
         const eventStart = new Date(event.event._instance.range.start);
         eventStart.setHours(eventStart.getHours() - 4);
 
         const eventEnd = new Date(event.event._instance.range.end);
         eventEnd.setHours(eventEnd.getHours() - 4);
-        
+
         const nowTimestamp = new Date();
 
         /*console.log("Event Start Timestamp: ", eventStart);
         console.log("Event End Timestamp: ", eventEnd);
         console.log("Current Timestamp: ", nowTimestamp);*/
-    
+
         if (nowTimestamp >= eventStart && nowTimestamp <= eventEnd) {
             /*console.log("green");*/
             return ['neon-green'];
@@ -278,7 +278,7 @@ const ChurchCalendar = () => {
             return ['neon-red'];
         }
     };
-    
+
 
 
 /*    useEffect(() => {
