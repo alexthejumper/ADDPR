@@ -38,7 +38,7 @@ const ChurchCalendar = () => {
     const [events, setEvents] = useState<(EventWithDate | { id: string; title: any; start: string; end: string; description: any; allDay: any; })[]>([]);
 
     const [modalOpen, setModalOpen] = useState(false);
-    const [modalEvent, setModalEvent] = useState<CalendarEvent>();
+    const [modalEvent, setModalEvent] = useState<CalendarEvent | null | undefined>(undefined);
     const [isClosing, setIsClosing] = useState(false);
 
     const formatDate = (date: string | Date): string => {
