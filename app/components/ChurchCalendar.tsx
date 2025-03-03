@@ -32,7 +32,15 @@ const ChurchCalendar = () => {
     const [isClosing, setIsClosing] = useState(false);
 
     const formatDate = (date: string | Date): string => {
-        return new Date(date).toLocaleString(); // Formats the date in a human-readable form
+        return new Date(date).toLocaleDateString('en-GB', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+        }) + ', ' + new Date(date).toLocaleTimeString('en-GB', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        });
     };
 
 
@@ -208,7 +216,7 @@ const ChurchCalendar = () => {
             setModalEvent(null);
         }, 600); // Match this time to the animation duration
 
-        console.log("modal closed: ", modalOpen);
+        /*console.log("modal closed: ", modalOpen);*/
     };
 
     const eventClick = (info) => {
@@ -221,7 +229,7 @@ const ChurchCalendar = () => {
 
 
     const getEventClassNames = (event) => {
-        console.log("e: ", event);
+       /* console.log("e: ", event);*/
     
         // Convert to UTC ISO format
         const eventStart = new Date(event.event._instance.range.start);
@@ -232,18 +240,18 @@ const ChurchCalendar = () => {
         
         const nowTimestamp = new Date();
 
-        console.log("Event Start Timestamp: ", eventStart);
+        /*console.log("Event Start Timestamp: ", eventStart);
         console.log("Event End Timestamp: ", eventEnd);
-        console.log("Current Timestamp: ", nowTimestamp);
+        console.log("Current Timestamp: ", nowTimestamp);*/
     
         if (nowTimestamp >= eventStart && nowTimestamp <= eventEnd) {
-            console.log("green");
+            /*console.log("green");*/
             return ['neon-green'];
         } else if (nowTimestamp < eventStart) {
-            console.log("blue");
+            /*console.log("blue");*/
             return ['neon-blue'];
         } else {
-            console.log("red");
+            /*console.log("red");*/
             return ['neon-red'];
         }
     };
@@ -311,10 +319,11 @@ const ChurchCalendar = () => {
                             }}  className="marcellusSC">{modalEvent.title}</h2>
                         </div>
                         <div className="modal-content">
-                            <p>{modalEvent._def.extendedProps.description}</p>
+                            <p className="roboto-condensed-unique">{modalEvent._def.extendedProps.description}</p>
+                            <br/>
                             <div style={{ display: "flex", justifyContent: "space-between"}}>
-                                <p>Start: {formatDate(modalEvent.start)}</p>
-                                <p>End: {formatDate(modalEvent.end)}</p>
+                                <p style={{ fontWeight: "bold"}}><span style={{ color: "blue"}}>Start: </span>{formatDate(modalEvent.start)}</p>
+                                <p style={{ fontWeight: "bold"}}><span style={{ color: "red"}}>End: </span>{formatDate(modalEvent.end)}</p>
                             </div>
                             <div style={{ textAlign: "center"}}>
                                 <button onClick={closeModal}>Close</button>

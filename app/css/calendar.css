@@ -93,8 +93,16 @@ body {
     color: white !important;
 }
 
-.fc-list-table tbody tr.fc-event:hover td {
+.fc-list-table tbody tr.fc-event.neon-red:hover td {
     background-color: red !important;
+}
+
+.fc-list-table tbody tr.fc-event.neon-blue:hover td {
+    background-color: #1800ff !important;
+}
+
+.fc-list-table tbody tr.fc-event.neon-green:hover td {
+    background-color: #00ce04 !important;
 }
 
 .fc-daygrid-event {
@@ -114,6 +122,12 @@ body {
     border-radius: 5px;
     font-weight: bold;
     text-shadow: 0 0 5px black;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.neon-green:hover {
+    background-color: #00cc77; /* Darker Green */
+    box-shadow: 0 0 10px #00cc77;
 }
 
 .neon-blue {
@@ -123,6 +137,12 @@ body {
     border-radius: 5px;
     font-weight: bold;
     text-shadow: 0 0 5px black;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.neon-blue:hover {
+    background-color: #0099cc; /* Darker Blue */
+    box-shadow: 0 0 7px #0099cc;
 }
 
 .neon-red {
@@ -132,7 +152,14 @@ body {
     border-radius: 5px;
     font-weight: bold;
     text-shadow: 0 0 5px black;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
+
+.neon-red:hover {
+    background-color: #cc0026; /* Darker Red */
+    box-shadow: 0 0 7px #cc0026;
+}
+
 
 
 
