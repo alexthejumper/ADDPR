@@ -14,6 +14,8 @@ import "../modalEventButtonCSS.css";
 import {weeklyEvents} from "@/app/weeklyData/default/defaultEvents";
 import {eventExceptions} from "@/app/weeklyData/exceptions/exceptionEvents";
 import {EventExceptionType} from "@/app/type/eventExceptions";
+import {EventClickArg} from "@fullcalendar/core";
+import {EventImpl} from "@fullcalendar/core/internal";
 
 const ChurchCalendar = () => {
 
@@ -38,20 +40,29 @@ const ChurchCalendar = () => {
     const [events, setEvents] = useState<(EventWithDate | { id: string; title: any; start: string; end: string; description: any; allDay: any; })[]>([]);
 
     const [modalOpen, setModalOpen] = useState(false);
-    const [modalEvent, setModalEvent] = useState<CalendarEvent | null | undefined>(undefined);
+    const [modalEvent, setModalEvent] = useState<EventImpl | null | undefined>(undefined);
     const [isClosing, setIsClosing] = useState(false);
 
-    const formatDate = (date: string | Date): string => {
-        return new Date(date).toLocaleDateString('en-GB', {
+    const formatDate = (date: string | Date | undefined): string => {
+        if (!date) return ""; // Handle undefined case if needed
+
+        // If it's a DateMarker (could be a string or Date)
+        const validDate = new Date(date);
+        if (isNaN(validDate.getTime())) {
+            return ""; // Return empty string if date is invalid
+        }
+
+        return validDate.toLocaleDateString('en-GB', {
             day: 'numeric',
             month: 'long',
             year: 'numeric',
-        }) + ', ' + new Date(date).toLocaleTimeString('en-GB', {
+        }) + ', ' + validDate.toLocaleTimeString('en-GB', {
             hour: '2-digit',
             minute: '2-digit',
             hour12: false
         });
     };
+
 
 
     const getWeeklyEventDates = (monthsAhead = 12) => {
@@ -213,7 +224,7 @@ const ChurchCalendar = () => {
         info.el.style.textShadow = "0 0 5px black";
     };*/
 
-    const openModal = (event: CalendarEvent) => {
+    const openModal = (event: EventImpl) => {
         setModalEvent(event);
         setModalOpen(true);
     };
@@ -229,8 +240,9 @@ const ChurchCalendar = () => {
         /*console.log("modal closed: ", modalOpen);*/
     };
 
-    const eventClick = (info) => {
-        console.log("info: " + JSON.stringify(info.event, null, 2));
+    const eventClick = (info: EventClickArg) => {
+        console.log("info: ", info);
+        /*console.log("info: " + JSON.stringify(info.event, null, 2));*/
         /*console.log("opening");
         console.log("event: ", info);
         console.log("info event: ", info.event);
@@ -327,14 +339,21 @@ const ChurchCalendar = () => {
                                 textAlign: "center",
                                 fontSize: "clamp(1.5rem, 2.5vw, 3rem)",
                                 color: "white"
-                            }}  className="marcellusSC">{modalEvent.title}</h2>
+                            }}  className="marcellusSC">{modalEvent?._def.title}</h2>
                         </div>
                         <div className="modal-content">
-                            <p className="roboto-condensed-unique">{modalEvent.extendedProps.description}</p>
+                            <p className="roboto-condensed-unique">{modalEvent?._def.extendedProps.description}</p>
                             <br/>
                             <div style={{ display: "flex", justifyContent: "space-between"}}>
-                                <p style={{ fontWeight: "bold"}}><span style={{ color: "blue"}}>Start: </span>{formatDate(modalEvent.start)}</p>
-                                <p style={{ fontWeight: "bold"}}><span style={{ color: "red"}}>End: </span>{formatDate(modalEvent.end)}</p>
+                                <p style={{ fontWeight: "bold" }}>
+                                    <span style={{ color: "blue" }}>Start: </span>
+                                    {formatDate(modalEvent?._instance?.range.start)}
+                                </p>
+                                <p style={{ fontWeight: "bold" }}>
+                                    <span style={{ color: "red" }}>End: </span>
+                                    {formatDate(modalEvent?._instance?.range.end)}
+                                </p>
+
                             </div>
                             <div style={{ textAlign: "center"}}>
                                 <button onClick={closeModal}>Close</button>
