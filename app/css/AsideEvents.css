@@ -1,0 +1,98 @@
+.aside-events {
+    /*width: 500px; !* Slightly increased width *!*/
+    height: 80vh !important;
+    padding: 15px;
+    border-radius: 8px;
+    background: transparent; /* Transparent background */
+    box-shadow: none; /* Remove shadow if needed */
+    width: 100%;
+}
+
+.events-container {
+    width: 100% !important;
+    max-height: clamp(550px, 50vh, 900px);
+    overflow-y: auto;
+    padding-right: 10px;
+    border-top: 2px solid cyan;
+    border-bottom: 2px solid cyan;
+    position: relative;
+}
+
+.event-card {
+    margin-bottom: 15px; /* More space between cards */
+    border-radius: 8px; /* Slightly rounder corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+    padding-left: 90px !important;
+    padding-right: 90px !important;
+    padding: 20px; /* Increased padding */
+    background-color: #00e5ff; /* Brighter cyan */
+}
+
+
+
+.event-card h3 {
+    margin: 0;
+    font-size: 1.3em; /* Bigger title */
+    color: #333;
+}
+
+.date {
+    font-size: 1em; /* Bigger date text */
+    color: #666;
+    margin-bottom: 8px;
+}
+
+/* Custom scrollbar */
+.events-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.events-container::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 4px;
+}
+
+.aside-events-container {
+    width: 100%;
+}
+
+#video-upcoming-events-container {
+    display: none;
+}
+
+@media (max-width: 1509px) {
+    #churchCalendar {
+        display: none;
+    }
+
+    #video-upcoming-events-container {
+        display: block;
+    }
+
+    .events-container {
+        width: 2000px !important;
+    }
+}
+
+/*@media (max-width: 1021px) {
+    .event-card {
+        !* Responsive width using clamp() *!
+        width: clamp(250px, 80%, 400px);
+        padding: 20px !important;
+    }
+}*/
+
+@media (max-width: 775px) {
+    #video-upcoming-events-container {
+        display: none !important;
+    }
+
+    .events-container {
+        display: block !important;
+    }
+
+    #upcoming-events-title {
+        text-align: center;
+        font-size: 30px;
+    }
+}

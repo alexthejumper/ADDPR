@@ -11,6 +11,7 @@ body {
 .calendar-body {
     /*border: 2px solid yellow;*/
     padding: 30px 0;
+    width: 1000px;
 }
 
 /* FullCalendar Container */
@@ -102,7 +103,7 @@ body {
 }
 
 .fc-list-table tbody tr.fc-event.neon-green:hover td {
-    background-color: #00ce04 !important;
+    background-color: #1800ff !important;
 }
 
 .fc-daygrid-event {
