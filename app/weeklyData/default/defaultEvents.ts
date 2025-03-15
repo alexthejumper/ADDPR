@@ -1,13 +1,13 @@
 // weeklyEvents.js
 export const weeklyEvents = [
-    {
+    /*{
         title: "Morning Prayer",
         description: "A time of prayer to start the day.",
         dayOfWeek: "Saturday",
         startTime: "12:30",
         endTime: "12:45",
         allDay: false
-    },
+    },*/
     {
         title: "Reunion d'Edification",
         description: "Reunion d'Edification.",
