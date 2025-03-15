@@ -10,13 +10,14 @@
 
 .events-container {
     width: 100% !important;
-    max-height: clamp(550px, 50vh, 900px);
+    max-height: calc(100vh - 100px); /* Adjust 100px based on your layout needs */
     overflow-y: auto;
     padding-right: 10px;
     border-top: 2px solid cyan;
     border-bottom: 2px solid cyan;
     position: relative;
 }
+
 
 .event-card {
     margin-bottom: 15px; /* More space between cards */
