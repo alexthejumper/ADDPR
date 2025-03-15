@@ -27,6 +27,7 @@
     padding-right: 90px !important;
     padding: 20px; /* Increased padding */
     background-color: #00e5ff; /* Brighter cyan */
+    position: relative;
 }
 
 
@@ -95,5 +96,36 @@
     #upcoming-events-title {
         text-align: center;
         font-size: 30px;
+    }
+}
+
+
+.event-card.green {
+    background-color: #28a745; /* Green background for ongoing events */
+    color: white; /* White text color for readability */
+    border: 1px solid #218838; /* Darker green border */
+}
+
+.now-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    animation: blink 1s infinite; /* Blink animation */
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
