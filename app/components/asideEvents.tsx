@@ -17,7 +17,7 @@ const AsideEvents = () => {
         { id: 5, title: "Hackathon", date: "July 20, 2024", description: "24-hour coding challenge." }
     ];*/
 
-    const [events, setEvents] = useState([]);
+    const [events, setEvents] = useState<(EventWithDate2 | { id: string; title: any; start: string; end: string; description: any; allDay: any; })[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -217,7 +217,7 @@ const AsideEvents = () => {
 
                             return (
                                 <div
-                                    key={event.id || `event-${index}`}
+                                    key={`event-${index}`}
                                     className={`event-card ${isOngoing ? "green" : ""}`}
                                     style={{ position: 'relative' }} // Set relative position for absolute positioning of "Now" label
                                 >
