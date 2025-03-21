@@ -5,7 +5,11 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import "../css/fonts.css";
 
-export default function Navbar() {
+interface NavbarProps {
+    homeLink: string;
+}
+
+const Navbar = ({ homeLink }: NavbarProps) => {
     const [showStickyNav, setShowStickyNav] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -49,7 +53,7 @@ export default function Navbar() {
                     {/* Navbar Menu (Hidden on mobile, shown when menu is open) */}
                     <div className={`navbar-menu ${isMenuOpen ? "is-active" : ""}`}>
                         <div className="navbar-end">
-                            <Link style={{ fontFamily: "Monda"}} href="#home" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                            <Link style={{ fontFamily: "Monda"}} href={homeLink} className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                 Home
                             </Link>
                             <Link style={{ fontFamily: "Monda"}} href="#service-hours" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
@@ -64,6 +68,10 @@ export default function Navbar() {
                             {/*<Link style={{ fontFamily: "Monda"}} href="#about" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                 About Us
                             </Link>*/}
+                            {/* Add the new "Events" link */}
+                            <Link style={{ fontFamily: "Monda"}} href="/events" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                                Events
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -94,7 +102,7 @@ export default function Navbar() {
                         {/* Sticky Navbar Menu */}
                         <div className={`navbar-menu ${isMenuOpen ? "is-active" : ""}`}>
                             <div className="navbar-end">
-                                <Link style={{ fontFamily: "Monda"}} href="#home" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                                <Link style={{ fontFamily: "Monda"}} href={homeLink} className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                     Home
                                 </Link>
                                 <Link style={{ fontFamily: "Monda"}} href="#service-hours" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
@@ -109,6 +117,10 @@ export default function Navbar() {
                                 {/*<Link style={{ fontFamily: "Monda"}} href="#about" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
                                     About Us
                                 </Link>*/}
+                                {/* Add the new "Events" link */}
+                                <Link style={{ fontFamily: "Monda"}} href="/events" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                                    Events
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -116,4 +128,6 @@ export default function Navbar() {
             )}
         </>
     );
-}
+};
+
+export default Navbar;
