@@ -1,39 +1,53 @@
-import type { Metadata } from "next";
+"use client";
+
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
 import Head from "next/head";
 import Preloader from "@/app/components/Preloader";
+import { usePathname } from "next/navigation";
 
-export const metadata: Metadata = {
-    title: "ADD Petite Riviere",
-    description: "Un lieu d’adoration, d’amour et d’unité – venez nous rejoindre ce dimanche !",
-    keywords: [
-        "Église chrétienne", "Assemblée de Dieu", "Petite Rivière",
-        "Culte", "Prière", "Adoration", "Maurice", "Foi", "Bible", "Louange", "Adoration", "Jesus", "Dieu",
-        "Sauveur", "L'Eternel", "Yeshua", "Vie", "Emmanuel", "Amour", "Unité"
-    ],
+interface LayoutProps {
+    children: React.ReactNode;
+}
 
-    robots: "index, follow", // Allows search engines to index and follow links
+// export default function RootLayout({ children }: { children: React.ReactNode }) {
 
-    icons: {
-        icon: "/icon-add.ico", // Standard favicon
-        shortcut: "/icon-add.ico"
-    },
-};
+//     return (
+//         <html lang="en">
+//         <Head>
+//             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+//             <meta name="color-scheme" content="light" />
+//         </Head>
+//         <body>
+//         <Preloader />
+//         <Navbar />
+//         {children}
+//         </body>
+//         </html>
+//     );
+// }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+
+const Layout = ({ children}: LayoutProps) => {
+
+    const pathname = usePathname();
+
+    const pageType = pathname === "/" ? "pageOne" : "pageTwo";
+    const homeLink = pageType === "pageOne" ? "#home" : "/";
 
     return (
-        <html lang="en">
-        <Head>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <meta name="color-scheme" content="light" />
-        </Head>
-        <body>
-        <Preloader />
-        <Navbar />
-        {children}
-        </body>
-        </html>
-    );
-}
+                <html lang="en">
+                 <Head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                     <meta name="color-scheme" content="light" />
+                 </Head>
+                 <body>
+                 <Preloader />
+                 <Navbar homeLink={homeLink} />
+                 {children}
+                 </body>
+                 </html>
+             );
+};
+
+export default Layout;
