@@ -67,13 +67,22 @@ const Navbar = ({ homeLink }: NavbarProps) => {
                             onClick={(e) => {
                                 console.log(homeLink);
                                 if (homeLink === "#home") {
-                                    e.preventDefault();
                                     console.log("Already on the home section!");
                                 }
                                 else if (homeLink === "/") {
                                     console.log("On events page");
                                     setIsLoading(true);
                                     setTimeout(() => setIsLoading(false), 6000);
+
+                                    // const bounceElement = document.querySelector(".voltage-button");
+                                    // console.log("bounce in top element, ", bounceElement);
+
+                                    // if (bounceElement) {
+                                    //     bounceElement.classList.add("visible");
+                                    //     setTimeout(() => {
+                                    //         bounceElement.classList.remove("visible");
+                                    //     }, 600);
+                                    // }
                                 }
                                 setIsMenuOpen(false);
                             }}>
@@ -129,11 +138,22 @@ const Navbar = ({ homeLink }: NavbarProps) => {
                                 onClick={(e) => {
                                     console.log(homeLink);
                                     if (homeLink === "#home") {
-                                        e.preventDefault();
                                         console.log("Already on the home section!");
                                     }
                                     else if (homeLink === "/") {
                                         console.log("On events page");
+                                        setIsLoading(true);
+                                        setTimeout(() => setIsLoading(false), 6000);
+    
+                                        // const bounceElement = document.querySelector(".voltage-button");
+                                        // console.log("bounce in top element, ", bounceElement);
+    
+                                        // // if (bounceElement) {
+                                        // //     bounceElement.classList.add("visible");
+                                        // //     setTimeout(() => {
+                                        // //         bounceElement.classList.remove("visible");
+                                        // //     }, 600);
+                                        // // }
                                     }
                                     setIsMenuOpen(false);
                                 }}
