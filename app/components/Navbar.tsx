@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import "../css/fonts.css";
 import Preloader from "./Preloader";
+import Cookies from "js-cookie";
 
 interface NavbarProps {
     homeLink: string;
@@ -72,17 +73,8 @@ const Navbar = ({ homeLink }: NavbarProps) => {
                                 else if (homeLink === "/") {
                                     console.log("On events page");
                                     setIsLoading(true);
+                                    Cookies.set("contactUsCSS", "true", { expires: 1});
                                     setTimeout(() => setIsLoading(false), 6000);
-
-                                    // const bounceElement = document.querySelector(".voltage-button");
-                                    // console.log("bounce in top element, ", bounceElement);
-
-                                    // if (bounceElement) {
-                                    //     bounceElement.classList.add("visible");
-                                    //     setTimeout(() => {
-                                    //         bounceElement.classList.remove("visible");
-                                    //     }, 600);
-                                    // }
                                 }
                                 setIsMenuOpen(false);
                             }}>
@@ -143,17 +135,8 @@ const Navbar = ({ homeLink }: NavbarProps) => {
                                     else if (homeLink === "/") {
                                         console.log("On events page");
                                         setIsLoading(true);
+                                        Cookies.set("contactUsCSS", "true", { expires: 1});
                                         setTimeout(() => setIsLoading(false), 6000);
-    
-                                        // const bounceElement = document.querySelector(".voltage-button");
-                                        // console.log("bounce in top element, ", bounceElement);
-    
-                                        // // if (bounceElement) {
-                                        // //     bounceElement.classList.add("visible");
-                                        // //     setTimeout(() => {
-                                        // //         bounceElement.classList.remove("visible");
-                                        // //     }, 600);
-                                        // // }
                                     }
                                     setIsMenuOpen(false);
                                 }}

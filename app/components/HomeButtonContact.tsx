@@ -2,13 +2,36 @@
 
 import "../scss/HomeContactButtonStyle.scss";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
+import Cookies from "js-cookie";
 
 const HomeButtonContact = () => {
+
+    useEffect(() => {
+        setTimeout(() => {
+            const element = document.querySelector(".voltage-button");
+            if (!element) return;
+    
+            console.log("Cookie value: ", Cookies.get("contactUsCSS"));
+    
+            if (Cookies.get("contactUsCSS")?.toString().includes("true")) {
+
+                const idElement = document.getElementById("volt-button") as HTMLElement;
+                console.log(idElement);
+                idElement.style.opacity = "1";
+    
+                Cookies.remove("contactUsCSS");
+                console.log("Cookie after removal: ", Cookies.get("contactUsCSS"));
+            }
+        }, 100); // Small delay to ensure DOM is ready
+    }, []);
+    
+
+    
     return (
         <div style={{ marginTop: "70px !important"}} className="voltage-button-body">
             <Link href="#contact">
-                <div className="bounce-in-top voltage-button">
+                <div id="volt-button" className="bounce-in-top voltage-button">
                     <button>Contactez Nous</button>
 
                     {/* SVG Party */}
