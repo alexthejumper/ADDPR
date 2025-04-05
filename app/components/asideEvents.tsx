@@ -215,7 +215,7 @@ const AsideEvents = () => {
 
     return (
         <aside className="aside-events">
-            <h2 id="upcoming-events-title" style={{ marginBottom: "20px", color: "white"}} className="cabin-sketch-regular">UPCOMING EVENTS</h2>
+            <h2 id="upcoming-events-title" style={{ marginBottom: "20px", color: "white"}} className="cabin-sketch-regular">WEEKLY UPCOMING EVENTS</h2>
             <div style={{ display: "flex"}}>
                 <div style={{ display: "flex", justifyContent: "center", height: "100vh" }} className="events-container">
                     <div>
