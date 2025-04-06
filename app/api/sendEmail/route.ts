@@ -9,7 +9,7 @@ export async function POST(req: Request) {
             service: 'gmail',
             auth: {
                 user: "assembleepetiteriviere22@gmail.com", // Your Gmail email address
-                pass: "fvmt uluh qios pfkh", // Your Gmail App Password
+                pass: "ncar gckw zgvx nxde", // Your Gmail App Password
             },
             secure: true
         });
