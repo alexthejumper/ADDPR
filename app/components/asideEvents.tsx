@@ -125,6 +125,22 @@ const AsideEvents = () => {
     };
 
     useEffect(() => {
+        const getWeekRange = (weekOffset = 0) => {
+            const now = new Date();
+            const day = now.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+            const diffToMonday = (day === 0 ? -6 : 1) - day;
+
+            const startOfWeek = new Date(now);
+            startOfWeek.setDate(now.getDate() + diffToMonday + (weekOffset * 7));
+            startOfWeek.setHours(0, 0, 0, 0);
+
+            const endOfWeek = new Date(startOfWeek);
+            endOfWeek.setDate(startOfWeek.getDate() + 6);
+            endOfWeek.setHours(23, 59, 59, 999);
+
+            return { startOfWeek, endOfWeek };
+        };
+
         const fetchEvents2 = async () => {
             try {
                 const querySnapshot = await getDocs(collection(db, "events"));
@@ -132,6 +148,7 @@ const AsideEvents = () => {
                     const data = doc.data();
                     const startTimestamp = data.start;
                     const endTimestamp = data.end;
+
                     const startDate = new Date(startTimestamp.seconds * 1000 + startTimestamp.nanoseconds / 1000000);
                     const endDate = new Date(endTimestamp.seconds * 1000 + endTimestamp.nanoseconds / 1000000);
 
@@ -148,46 +165,40 @@ const AsideEvents = () => {
                 // Get generated weekly events
                 let weeklyEventsWithDates = getWeeklyEventDates2();
 
-                // Identify dates with exceptions
+                // Exception dates
                 const exceptionDates = new Set(eventExceptions.map(ex => ex.date));
 
                 // Get start and end of the current week
+                const { startOfWeek, endOfWeek } = getWeekRange(0);
                 const now = new Date();
-                const startOfWeek = new Date(now);
-                startOfWeek.setDate(now.getDate() - now.getDay() + 1); // Move to Monday
-                startOfWeek.setHours(0, 0, 0, 0);
 
-                const endOfWeek = new Date(startOfWeek);
-                endOfWeek.setDate(startOfWeek.getDate() + 6); // Move to Sunday
-                endOfWeek.setHours(23, 59, 59, 999);
+                console.log("Start of week:", startOfWeek);
+                console.log("End of week:", endOfWeek);
 
-                // Filter fetched events to include only this week's events that have not passed
+                // Filter Firestore events
                 const filteredFetchedEvents = fetchedEvents.filter(event => {
                     const eventStart = new Date(event.start);
                     const eventEnd = new Date(event.end);
-
-                    // Check if event is within the current week and if it hasn't passed yet
                     return (
-                        eventStart >= startOfWeek && eventEnd <= endOfWeek &&
-                        eventEnd >= now && // Ensure the event has not ended
-                        !exceptionDates.has(event.start.split("T")[0]) // Exclude exceptions
+                        eventStart >= startOfWeek &&
+                        eventEnd <= endOfWeek &&
+                        eventEnd >= now &&
+                        !exceptionDates.has(event.start.split("T")[0])
                     );
                 });
 
-                // Filter weekly events to include only those within this week and not passed
+                // Filter weekly events
                 weeklyEventsWithDates = weeklyEventsWithDates.filter(event => {
                     const eventStart = new Date(event.start);
                     const eventEnd = new Date(event.end);
-
-                    // Check if event is within the current week and if it hasn't passed yet
                     return (
-                        eventStart >= startOfWeek && eventEnd <= endOfWeek &&
-                        eventEnd >= now && // Ensure the event has not ended
-                        !exceptionDates.has(event.start.split("T")[0]) // Exclude exceptions
+                        eventStart >= startOfWeek &&
+                        eventEnd <= endOfWeek &&
+                        eventEnd >= now &&
+                        !exceptionDates.has(event.start.split("T")[0])
                     );
                 });
 
-                // Combine filtered events
                 setEvents([...filteredFetchedEvents, ...weeklyEventsWithDates]);
             } catch (err) {
                 console.error("Error fetching events:", err);
@@ -201,45 +212,48 @@ const AsideEvents = () => {
 
 
 
+
     return (
         <aside className="aside-events">
-            <h2 id="upcoming-events-title" style={{ marginBottom: "20px", color: "white"}} className="cabin-sketch-regular">UPCOMING EVENTS</h2>
+            <h2 id="upcoming-events-title" style={{ marginBottom: "20px", color: "white"}} className="cabin-sketch-regular">WEEKLY UPCOMING EVENTS</h2>
             <div style={{ display: "flex"}}>
                 <div style={{ display: "flex", justifyContent: "center", height: "100vh" }} className="events-container">
                     <div>
-                        {events.map((event, index) => {
-                            const eventStart = new Date(event.start);
-                            const eventEnd = new Date(event.end);
-                            const now = new Date();
+                        {events
+                            .slice() // clone to avoid mutating original state
+                            .sort((a, b) => new Date(a.start) - new Date(b.start)) // sort ascending
+                            .map((event, index) => {
+                                const eventStart = new Date(event.start);
+                                const eventEnd = new Date(event.end);
+                                const now = new Date();
 
-                            // Check if the event is ongoing
-                            const isOngoing = eventStart <= now && eventEnd >= now;
+                                const isOngoing = eventStart <= now && eventEnd >= now;
 
-                            return (
-                                <div
-                                    key={`event-${index}`}
-                                    className={`event-card ${isOngoing ? "green" : ""}`}
-                                    style={{ position: 'relative' }} // Set relative position for absolute positioning of "Now" label
-                                >
-                                    {isOngoing && (
-                                        <div className="now-label">Now</div>
-                                    )}
-                                    <h3>{event.title}</h3>
-                                    <p className="date">
-                                        {new Date(event.start).toLocaleString("en-US", {
-                                            weekday: "short", // e.g., Mon, Tue
-                                            month: "short", // e.g., Jul
-                                            day: "2-digit", // e.g., 15
-                                            year: "numeric", // e.g., 2024
-                                            hour: "2-digit", // e.g., 10
-                                            minute: "2-digit", // e.g., 30
-                                            hour12: true // Display in AM/PM format
-                                        })}
-                                    </p>
-                                    <p>{event.description}</p>
-                                </div>
-                            );
-                        })}
+                                return (
+                                    <div
+                                        key={`event-${index}`}
+                                        className={`event-card ${isOngoing ? "green" : ""}`}
+                                        style={{ position: 'relative' }}
+                                    >
+                                        {isOngoing && (
+                                            <div className="now-label">Now</div>
+                                        )}
+                                        <h3>{event.title}</h3>
+                                        <p className="date">
+                                            {eventStart.toLocaleString("en-US", {
+                                                weekday: "short",
+                                                month: "short",
+                                                day: "2-digit",
+                                                year: "numeric",
+                                                hour: "2-digit",
+                                                minute: "2-digit",
+                                                hour12: true
+                                            })}
+                                        </p>
+                                        <p>{event.description}</p>
+                                    </div>
+                                );
+                            })}
                     </div>
                 </div>
 
