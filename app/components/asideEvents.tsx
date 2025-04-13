@@ -54,47 +54,66 @@ const AsideEvents = () => {
         weeklyEvents.forEach((event) => {
             const targetDayOfWeek = dayOfWeekMap[event.dayOfWeek as keyof typeof dayOfWeekMap];
 
+            // console.log(event.title, " start date: ", event.startTime);
+            // console.log(event.title, "end time: ", event.endTime);
+        
             // Calculate days until the next occurrence of the event
             let diffDays = targetDayOfWeek - currentDayOfWeek;
             if (diffDays < 0) diffDays += 7; // Move to the next week if needed
-
+        
+            const [startHour, startMinute] = event.startTime.split(":").map(Number);
+            const [endHour, endMinute] = event.endTime.split(":").map(Number);
+        
             const startDate = new Date(now);
             startDate.setDate(now.getDate() + diffDays);
-            startDate.setHours(parseInt(event.startTime.split(":")[0]), parseInt(event.startTime.split(":")[1]));
-
+            startDate.setHours(startHour, startMinute);
+        
             const endDate = new Date(startDate);
-            endDate.setHours(parseInt(event.endTime.split(":")[0]), parseInt(event.endTime.split(":")[1]));
-
+            endDate.setHours(endHour, endMinute);
+        
+            // Handle event that spans past midnight
+            if (endHour < startHour || (endHour === startHour && endMinute < startMinute)) {
+                endDate.setDate(endDate.getDate() + 1);
+            }
+        
             // Loop to create events for the next 'monthsAhead' months
             for (let i = 0; i < monthsAhead * 4; i++) {
                 const newStart = new Date(startDate);
                 const newEnd = new Date(endDate);
-
+        
                 // Add 7 days (1 week) for each iteration
                 newStart.setDate(newStart.getDate() + i * 7);
                 newEnd.setDate(newEnd.getDate() + i * 7);
-
+        
                 const eventDate = newStart.toISOString().split("T")[0]; // Format: "YYYY-MM-DD"
-
+        
                 // Increase count for this date
                 dateCount[eventDate] = (dateCount[eventDate] || 0) + 1;
-
+        
                 // If an exception event was already processed for this date, skip
                 if (processedDates.has(eventDate)) {
                     continue;
                 }
-
+        
                 // Check if exceptions exist for this date
                 const exceptionsForDate = eventExceptions.filter((e: typeof EventExceptionType[0]) => e.date === eventDate);
-
+        
                 if (exceptionsForDate.length > 0) {
                     exceptionsForDate.forEach((ex) => {
+                        const [exStartHour, exStartMinute] = ex.startTime.split(":").map(Number);
+                        const [exEndHour, exEndMinute] = ex.endTime.split(":").map(Number);
+        
                         const exceptionStart = new Date(newStart);
-                        const exceptionEnd = new Date(newEnd);
-
-                        exceptionStart.setHours(parseInt(ex.startTime.split(":")[0]), parseInt(ex.startTime.split(":")[1]));
-                        exceptionEnd.setHours(parseInt(ex.endTime.split(":")[0]), parseInt(ex.endTime.split(":")[1]));
-
+                        exceptionStart.setHours(exStartHour, exStartMinute);
+        
+                        const exceptionEnd = new Date(exceptionStart);
+                        exceptionEnd.setHours(exEndHour, exEndMinute);
+        
+                        // Handle exception that spans past midnight
+                        if (exEndHour < exStartHour || (exEndHour === exStartHour && exEndMinute < exStartMinute)) {
+                            exceptionEnd.setDate(exceptionEnd.getDate() + 1);
+                        }
+        
                         eventsWithDates.push({
                             title: ex.title,
                             description: ex.description,
@@ -102,7 +121,7 @@ const AsideEvents = () => {
                             end: exceptionEnd.toISOString(),
                             allDay: ex.allDay
                         });
-
+        
                         // Mark this date as processed, so we don't add duplicates
                         processedDates.add(eventDate);
                     });
@@ -116,10 +135,14 @@ const AsideEvents = () => {
                         allDay: event.allDay
                     });
                 }
-
-                /*console.log("description: " + event.description);*/
             }
         });
+        
+
+        // eventsWithDates.forEach(element => {
+        //     console.log(element.title, " start time: ", element.start);
+        //     console.log(element.title, " end time: ", element.end);
+        // });
 
         return eventsWithDates;
     };
@@ -191,13 +214,31 @@ const AsideEvents = () => {
                 weeklyEventsWithDates = weeklyEventsWithDates.filter(event => {
                     const eventStart = new Date(event.start);
                     const eventEnd = new Date(event.end);
-                    return (
-                        eventStart >= startOfWeek &&
-                        eventEnd <= endOfWeek &&
-                        eventEnd >= now &&
-                        !exceptionDates.has(event.start.split("T")[0])
-                    );
+                
+                    console.log(event.title, " start time: ", eventStart.toISOString());
+                    console.log(event.title, " end time: ", eventEnd.toISOString());
+                
+                    const eventDate = event.start.split("T")[0];
+                
+                    const overlapsWeek =
+                        eventEnd >= startOfWeek && eventStart <= endOfWeek; // event overlaps with the current week
+                
+                    const isInFuture = eventEnd >= now;
+                
+                    const isNotException = !exceptionDates.has(eventDate);
+                
+                    return overlapsWeek && isInFuture && isNotException;
                 });
+                
+                
+                console.log("yessssssssssssssssssssss");
+
+                // weeklyEventsWithDates.forEach(element => {
+                //     console.log(element.title, " start time: ", element.start);
+                //     console.log(element.title, " end time: ", element.end);
+                // });
+
+                
 
                 setEvents([...filteredFetchedEvents, ...weeklyEventsWithDates]);
             } catch (err) {
@@ -221,7 +262,7 @@ const AsideEvents = () => {
                     <div>
                         {events
                             .slice() // clone to avoid mutating original state
-                            .sort((a, b) => new Date(a.start) - new Date(b.start)) // sort ascending
+                            .sort((a, b) => new Date(a.start).valueOf() - new Date(b.start).valueOf()) // sort ascending
                             .map((event, index) => {
                                 const eventStart = new Date(event.start);
                                 const eventEnd = new Date(event.end);

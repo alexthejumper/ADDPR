@@ -4,8 +4,8 @@ export const weeklyEvents = [
         title: "Morning Prayer",
         description: "A time of prayer to start the day.",
         dayOfWeek: "Sunday",
-        startTime: "21:45",
-        endTime: "22:40",
+        startTime: "23:00",
+        endTime: "05:00",
         allDay: false
     },
     {
