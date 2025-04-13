@@ -231,7 +231,7 @@ const AsideEvents = () => {
                 });
                 
                 
-                console.log("yessssssssssssssssssssss");
+                // console.log("yessssssssssssssssssssss");
 
                 // weeklyEventsWithDates.forEach(element => {
                 //     console.log(element.title, " start time: ", element.start);
