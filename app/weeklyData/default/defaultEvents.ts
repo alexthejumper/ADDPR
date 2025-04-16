@@ -1,21 +1,21 @@
 // weeklyEvents.js
 export const weeklyEvents = [
-    {
-        title: "Morning Prayer",
-        description: "A time of prayer to start the day.",
-        dayOfWeek: "Sunday",
-        startTime: "23:00",
-        endTime: "05:00",
-        allDay: false
-    },
-    {
-        title: "Morning Prayer 2",
-        description: "A time of prayer to start the day.",
-        dayOfWeek: "Sunday",
-        startTime: "00:01",
-        endTime: "01:00",
-        allDay: false
-    },
+    // {
+    //     title: "Morning Prayer",
+    //     description: "A time of prayer to start the day.",
+    //     dayOfWeek: "Sunday",
+    //     startTime: "23:00",
+    //     endTime: "05:00",
+    //     allDay: false
+    // },
+    // {
+    //     title: "Morning Prayer 2",
+    //     description: "A time of prayer to start the day.",
+    //     dayOfWeek: "Sunday",
+    //     startTime: "00:01",
+    //     endTime: "01:00",
+    //     allDay: false
+    // },
     {
         title: "Reunion d'Edification",
         description: "Reunion d'Edification.",
