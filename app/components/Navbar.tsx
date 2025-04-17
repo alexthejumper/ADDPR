@@ -93,7 +93,13 @@ const Navbar = ({ homeLink }: NavbarProps) => {
                                 About Us
                             </Link>*/}
                             {/* Add the new "Events" link */}
-                            <Link style={{ fontFamily: "Monda"}} href="/events" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                            <Link style={{ fontFamily: "Monda"}} href="/events" className="navbar-item" onClick={(e) => {
+                                setIsMenuOpen(false);
+
+                                console.log("Going on events page");
+                                setIsLoading(true);
+                                setTimeout(() => setIsLoading(false), 6000);
+                            }}>
                                 Events
                             </Link>
                         </div>
@@ -156,7 +162,13 @@ const Navbar = ({ homeLink }: NavbarProps) => {
                                     About Us
                                 </Link>*/}
                                 {/* Add the new "Events" link */}
-                                <Link style={{ fontFamily: "Monda"}} href="/events" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                                <Link style={{ fontFamily: "Monda"}} href="/events" className="navbar-item" onClick={(e) => {
+                                    setIsMenuOpen(false);
+
+                                    console.log("Going on events page");
+                                    setIsLoading(true);
+                                    setTimeout(() => setIsLoading(false), 6000);
+                                }}>
                                     Events
                                 </Link>
                             </div>
