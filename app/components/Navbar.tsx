@@ -80,13 +80,91 @@ const Navbar = ({ homeLink }: NavbarProps) => {
                             }}>
                                 Home
                             </Link>
-                            <Link style={{ fontFamily: "Monda"}} href="#service-hours" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                            
+                            <Link
+                                style={{ fontFamily: "Monda" }}
+                                href={homeLink === "#home" ? "#service-hours" : homeLink}
+                                className="navbar-item"
+                                onClick={(e) => {
+                                    console.log("HomeLink: ", homeLink);
+
+                                    if (homeLink === "#home") {
+                                    console.log("Already on the home section!");
+                                    } else if (homeLink === "/") {
+                                    console.log("Navigating to service hours on home page");
+
+                                    // Optional: show loading or set any flags
+                                    setIsLoading(true);
+                                    Cookies.set("contactUsCSS", "true", { expires: 1 });
+
+                                    // Navigate to /#service-hours
+                                    window.location.href = "/#service-hours";
+
+                                    // This timeout likely won't finish if page reloads, but still fine to leave
+                                    setTimeout(() => setIsLoading(false), 6000);
+                                    }
+
+                                    setIsMenuOpen(false);
+                                }}
+                                >
                                 Service Hours
                             </Link>
-                            <Link style={{ fontFamily: "Monda"}} href="#location" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+
+                            <Link
+                                style={{ fontFamily: "Monda" }}
+                                href={homeLink === "#home" ? "#location" : homeLink}
+                                className="navbar-item"
+                                onClick={(e) => {
+                                    console.log("HomeLink: ", homeLink);
+
+                                    if (homeLink === "#home") {
+                                    console.log("Already on the home section!");
+                                    } else if (homeLink === "/") {
+                                    console.log("Navigating to location on home page");
+
+                                    // Optional: show loading or set any flags
+                                    setIsLoading(true);
+                                    Cookies.set("contactUsCSS", "true", { expires: 1 });
+
+                                    // Navigate to /#service-hours
+                                    window.location.href = "/#location";
+
+                                    // This timeout likely won't finish if page reloads, but still fine to leave
+                                    setTimeout(() => setIsLoading(false), 6000);
+                                    }
+
+                                    setIsMenuOpen(false);
+                                }}
+                                >
                                 Location
                             </Link>
-                            <Link style={{ fontFamily: "Monda"}} href="#contact" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+
+                            <Link
+                                style={{ fontFamily: "Monda" }}
+                                href={homeLink === "#home" ? "#contact" : homeLink}
+                                className="navbar-item"
+                                onClick={(e) => {
+                                    console.log("HomeLink: ", homeLink);
+
+                                    if (homeLink === "#home") {
+                                    console.log("Already on the home section!");
+                                    } else if (homeLink === "/") {
+                                    console.log("Navigating to contact on home page");
+
+                                    // Optional: show loading or set any flags
+                                    setIsLoading(true);
+                                    Cookies.set("contactUsCSS", "true", { expires: 1 });
+
+                                    // Navigate to /#service-hours
+                                    window.location.href = "/#contact";
+
+                                    // This timeout likely won't finish if page reloads, but still fine to leave
+                                    setTimeout(() => setIsLoading(false), 6000);
+                                    }
+
+                                    setIsMenuOpen(false);
+                                }}
+                                >
                                 Contact
                             </Link>
                             {/*<Link style={{ fontFamily: "Monda"}} href="#about" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
@@ -149,13 +227,90 @@ const Navbar = ({ homeLink }: NavbarProps) => {
                                 >
                                     Home
                                 </Link>
-                                <Link style={{ fontFamily: "Monda"}} href="#service-hours" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+                                <Link
+                                    style={{ fontFamily: "Monda" }}
+                                    href={homeLink === "#home" ? "#service-hours" : homeLink}
+                                    className="navbar-item"
+                                    onClick={(e) => {
+                                        console.log(homeLink);
+
+                                        if (homeLink === "#home") {
+                                        console.log("Already on the home section!");
+                                        } else if (homeLink === "/") {
+                                        console.log("Navigating to service hours on home page");
+
+                                        // Optional: show loading or set any flags
+                                        setIsLoading(true);
+                                        Cookies.set("contactUsCSS", "true", { expires: 1 });
+
+                                        // Navigate to /#service-hours
+                                        window.location.href = "/#service-hours";
+
+                                        // This timeout likely won't finish if page reloads, but still fine to leave
+                                        setTimeout(() => setIsLoading(false), 6000);
+                                        }
+
+                                        setIsMenuOpen(false);
+                                    }}
+                                    >
                                     Service Hours
                                 </Link>
-                                <Link style={{ fontFamily: "Monda"}} href="#location" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+
+                                <Link
+                                    style={{ fontFamily: "Monda" }}
+                                    href={homeLink === "#home" ? "#location" : homeLink}
+                                    className="navbar-item"
+                                    onClick={(e) => {
+                                        console.log("HomeLink: ", homeLink);
+
+                                        if (homeLink === "#home") {
+                                        console.log("Already on the home section!");
+                                        } else if (homeLink === "/") {
+                                        console.log("Navigating to location on home page");
+
+                                        // Optional: show loading or set any flags
+                                        setIsLoading(true);
+                                        Cookies.set("contactUsCSS", "true", { expires: 1 });
+
+                                        // Navigate to /#service-hours
+                                        window.location.href = "/#location";
+
+                                        // This timeout likely won't finish if page reloads, but still fine to leave
+                                        setTimeout(() => setIsLoading(false), 6000);
+                                        }
+
+                                        setIsMenuOpen(false);
+                                    }}
+                                    >
                                     Location
                                 </Link>
-                                <Link style={{ fontFamily: "Monda"}} href="#contact" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
+
+                                <Link
+                                    style={{ fontFamily: "Monda" }}
+                                    href={homeLink === "#home" ? "#contact" : homeLink}
+                                    className="navbar-item"
+                                    onClick={(e) => {
+                                        console.log("HomeLink: ", homeLink);
+
+                                        if (homeLink === "#home") {
+                                        console.log("Already on the home section!");
+                                        } else if (homeLink === "/") {
+                                        console.log("Navigating to contact on home page");
+
+                                        // Optional: show loading or set any flags
+                                        setIsLoading(true);
+                                        Cookies.set("contactUsCSS", "true", { expires: 1 });
+
+                                        // Navigate to /#service-hours
+                                        window.location.href = "/#contact";
+
+                                        // This timeout likely won't finish if page reloads, but still fine to leave
+                                        setTimeout(() => setIsLoading(false), 6000);
+                                        }
+
+                                        setIsMenuOpen(false);
+                                    }}
+                                    >
                                     Contact
                                 </Link>
                                 {/*<Link style={{ fontFamily: "Monda"}} href="#about" className="navbar-item" onClick={() => setIsMenuOpen(false)}>
